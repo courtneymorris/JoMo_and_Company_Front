@@ -16,7 +16,7 @@ export default class App extends Component {
         <h1>JoMo and Company</h1>
         <BrowserRouter>
           <div>
-            <Navigation />
+            {/* <Navigation /> */}
             <Switch>
               <Route exact path="/" component={Home} />
 
