@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 
-import ProductDetail from "./product-detail";
 import ProductContainer from "../products/product-container";
 import NavigationContainer from "../navigation/shop-navigation";
 

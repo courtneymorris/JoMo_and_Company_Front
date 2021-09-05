@@ -1,8 +1,5 @@
 import React, { Component } from "react";
 
-import dummyData from "../../../static/assets/dummyData.json";
-import NavigationContainer from "../navigation/shop-navigation";
-
 export default class Product extends Component {
   constructor(props) {
     super(props);
@@ -11,9 +8,18 @@ export default class Product extends Component {
   }
 
   render() {
+    const { id, name, description, price, image } = this.props.item;
     return (
       <div className="product-wrapper">
-        <h1>I'm a product</h1>
+        <div className="name-wrapper">{name}</div>
+
+        <div className="price-wrapper">{price}</div>
+
+        <div className="product-image-wrapper">
+          <img src={image} />
+        </div>
+
+        <div className="description-wrapper">{description}</div>
       </div>
     );
   }
