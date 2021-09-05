@@ -1,0 +1,38 @@
+.home-navigation-wrapper {
+  font-family: "Lobster", cursive;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 30px;
+
+  .home-banner {
+    img {
+      margin: 15px 0px;
+      width: 100%;
+      height: 350px;
+      border-radius: 5px;
+      object-fit: cover;
+    }
+  }
+
+  .home-links-wrapper {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+    justify-items: center;
+
+    .home-link {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr;
+      gap: 0px 0px;
+      font-size: 2rem;
+    }
+
+    .shop {
+      display: grid;
+      grid-template-columns: 1fr;
+      font-size: 4rem;
+    }
+  }
+}

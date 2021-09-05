@@ -1,0 +1,32 @@
+.nav-wrapper {
+  font-family: "Lobster", cursive;
+  display: flex;
+  justify-content: space-between;
+  padding: 30px;
+
+  .nav-link-wrapper {
+    display: flex;
+    height: 30px;
+    border-bottom: 1px solid transparent;
+    transition: 0.5s ease-in-out;
+    margin-right: 20px;
+    font-size: 3rem;
+
+    a {
+      color: $carmine;
+      text-decoration: none;
+      &:hover {
+        color: black;
+      }
+    }
+
+    &:hover {
+      border-bottom: 1px solid black;
+    }
+
+    .nav-link-active {
+      border-bottom: 1px solid black;
+      color: black;
+    }
+  }
+}

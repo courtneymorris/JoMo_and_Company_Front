@@ -1,22 +1,12 @@
 import React, { useState } from "react";
-import { NavLink } from "react-router-dom";
+import HomeNavigation from "../navigation/home-navigation";
 
-import Featured from "../featured-products";
+import ProductContainer from "../products/product-container";
 
 export default function Home() {
   return (
-    <div className="big-links-wrapper">
-      <NavLink exact to="/shop">
-        Shop Online
-      </NavLink>
-      <NavLink exact to="/in-person">
-        Shop In Person
-      </NavLink>
-      <NavLink exact to="/about">
-        About
-      </NavLink>
-
-      <Featured />
+    <div className="home-wrapper">
+      <HomeNavigation />
     </div>
   );
 }
