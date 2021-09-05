@@ -2,6 +2,7 @@ import React, { Component } from "react";
 
 import ProductDetail from "./product-detail";
 import ProductContainer from "../products/product-container";
+import NavigationContainer from "../navigation/shop-navigation";
 
 export default class ShopOnline extends Component {
   constructor(props) {
@@ -12,9 +13,19 @@ export default class ShopOnline extends Component {
 
   render() {
     return (
-      <div className="shop-online-wrapper">
-        <h1>Shop Online Home Page</h1>
-        <ProductContainer />
+      <div className="shop-wrapper">
+        <div className="left-side">
+          <NavigationContainer />
+        </div>
+
+        <div className="right-side">
+          <div className="shop-banner">
+            <h1>Shop Online Home Page</h1>
+          </div>
+          <div className="products-wrapper">
+            <ProductContainer />
+          </div>
+        </div>
       </div>
     );
   }

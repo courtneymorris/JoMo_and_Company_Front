@@ -1,0 +1,40 @@
+.shop-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+  .nav-wrapper {
+    font-family: "Lobster", cursive;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    width: 350px;
+    justify-content: space-evenly;
+    padding: 20px;
+    background-color: $blue;
+
+    .nav-link-wrapper {
+      display: flex;
+      height: 30px;
+      border-bottom: 1px solid transparent;
+      transition: 0.5s ease-in-out;
+      margin-right: 20px;
+      font-size: 3rem;
+
+      a {
+        color: $carmine;
+        text-decoration: none;
+        &:hover {
+          color: $raspberry;
+        }
+      }
+
+      &:hover {
+        border-bottom: 1px solid black;
+      }
+
+      .nav-link-active {
+        border-bottom: 1px solid black;
+        color: black;
+      }
+    }
+  }
+}

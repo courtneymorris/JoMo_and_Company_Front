@@ -11,26 +11,22 @@ export default class NavigationContainer extends Component {
   render() {
     return (
       <div className="nav-wrapper">
-        <div className="left-side">
-          <div className="nav-link-wrapper">
-            <NavLink to="/" activeClassName="nav-link-active">
-              Shop
-            </NavLink>
-          </div>
+        <div className="nav-link-wrapper">
+          <NavLink to="/products/scrunchies" activeClassName="nav-link-active">
+            Scrunchies
+          </NavLink>
+        </div>
 
-          <div className="right-side">
-            <div className="nav-link-wrapper">
-              <NavLink to="/about" activeClassName="nav-link-active">
-                About
-              </NavLink>
-            </div>
+        <div className="nav-link-wrapper">
+          <NavLink to="/products/earrings" activeClassName="nav-link-active">
+            Earrings
+          </NavLink>
+        </div>
 
-            <div className="nav-link-wrapper">
-              <NavLink to="/in-person" activeClassName="nav-link-active">
-                Shop In Person
-              </NavLink>
-            </div>
-          </div>
+        <div className="nav-link-wrapper">
+          <NavLink to="/products/charms" activeClassName="nav-link-active">
+            Charms
+          </NavLink>
         </div>
       </div>
     );

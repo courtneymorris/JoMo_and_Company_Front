@@ -1,0 +1,76 @@
+{
+  "product": [
+    {
+      "id": 1,
+      "name": "black satin scrunchie",
+      "description": "asdf;lkjasdf;lkjasdf;lkj",
+      "category": "scrunchies",
+      "subcategory": "casual",
+      "primary_color": "black",
+      "secondary_color": "white",
+      "solid or print": "solid",
+      "material": "stretch satin",
+      "price": 10
+    },
+    {
+      "id": 2,
+      "name": "mod black/white scrunchie",
+      "description": "asdf;lkjasdf;lkjasdf;lkj",
+      "category": "scrunchies",
+      "subcategory": "casual",
+      "primary_color": "black",
+      "secondary_color": "white",
+      "solid or print": "solid",
+      "material": "terry stretch cotton",
+      "price": 8
+    },
+    {
+      "id": 3,
+      "name": "pink joey scrunchie",
+      "description": "asdf;lkjasdf;lkjasdf;lkj",
+      "category": "scrunchies",
+      "subcategory": "joey",
+      "primary_color": "pink",
+      "secondary_color": null,
+      "solid or print": "solid",
+      "material": "stretch satin",
+      "price": 6
+    },
+    {
+      "id": 4,
+      "name": "yellow and pink print scrunchie",
+      "description": "asdf;lkjasdf;lkjasdf;lkj",
+      "category": "scrunchies",
+      "subcategory": "premium",
+      "primary_color": "yellow",
+      "secondary_color": "pink",
+      "solid or print": "print",
+      "material": "cotton",
+      "price": 12
+    },
+    {
+      "id": 5,
+      "name": "some purple studs",
+      "description": "asdf;lkjasdf;lkjasdf;lkj",
+      "category": "earrings",
+      "subcategory": "studs",
+      "primary_color": "purple",
+      "secondary_color": "rose gold",
+      "solid or print": null,
+      "material": "polymer clay",
+      "price": 15
+    },
+    {
+      "id": 6,
+      "name": "pretty blue earrings",
+      "description": "asdf;lkjasdf;lkjasdf;lkj",
+      "category": "earrings",
+      "subcategory": "dangle",
+      "primary_color": "blue",
+      "secondary_color": "yellow",
+      "solid or print": null,
+      "material": "resin",
+      "price": 20
+    }
+  ]
+}
