@@ -11,12 +11,12 @@
       "solid or print": "solid",
       "material": "stretch satin",
       "price": 10,
-      "image": "scr1.jpg"
+      "image": "http://127.0.0.1:3000/assets/images/dummyPhotos/scr1.jpg"
     },
     {
       "id": 2,
       "name": "mod black/white scrunchie",
-      "description": "A beautiful scrunchie...",
+      "description": "A poopy scrunchie...",
       "category": "scrunchies",
       "subcategory": "casual",
       "primary_color": "black",
@@ -24,7 +24,7 @@
       "solid or print": "solid",
       "material": "terry stretch cotton",
       "price": 8,
-      "image": "scr2.jpg"
+      "image": "http://127.0.0.1:3000/assets/images/dummyPhotos/scr2.jpg"
     },
     {
       "id": 3,
@@ -37,7 +37,7 @@
       "solid or print": "solid",
       "material": "stretch satin",
       "price": 6,
-      "image": "scr3.jpg"
+      "image": "http://127.0.0.1:3000/assets/images/dummyPhotos/scr3.jpg"
     },
     {
       "id": 4,
@@ -50,7 +50,7 @@
       "solid or print": "print",
       "material": "cotton",
       "price": 12,
-      "image": "scr4.jpg"
+      "image": "http://127.0.0.1:3000/assets/images/dummyPhotos/scr4.jpg"
     },
     {
       "id": 5,
@@ -63,7 +63,7 @@
       "solid or print": null,
       "material": "polymer clay",
       "price": 15,
-      "image": "scr5.jpg"
+      "image": "http://127.0.0.1:3000/assets/images/dummyPhotos/scr5.jpg"
     },
     {
       "id": 6,
@@ -76,7 +76,7 @@
       "solid or print": null,
       "material": "resin",
       "price": 20,
-      "image": "scr6.jpg"
+      "image": "http://127.0.0.1:3000/assets/images/dummyPhotos/scr6.jpg"
     }
   ]
 }
