@@ -1,33 +1,43 @@
 import styled from "styled-components";
 import { NavLink as Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faIcons } from "@fortawesome/free-solid-svg-icons";
 
 export const Nav = styled.nav`
-  background: brown;
-  height: 80px;
+  background: whitesmoke;
+  height: 83px;
   display: flex;
   justify-content: space-between;
   padding: 0.5rem calc((100vw - 1000px) / 2);
+  border-bottom: 1px solid #e9ebeb;
   z-index: 10;
 `;
 
 export const NavLink = styled(Link)`
-  color: #fff;
+  color: #442b48;
   display: flex;
   align-items: center;
-  text-decoration: none;
   padding: 0 1rem;
   height: 100%;
   cursor: pointer;
+  border-bottom: 3px solid transparent;
 
-  img {
-    height: 70px;
-    width: 100%;
+  &:hover {
+    color: #506c64;
+    font-weight: 700;
+    transition: 0.5s ease-in-out;
   }
 
   &.active {
-    color: #15cdfc;
+    color: #506c64;
+    border-bottom: 3px solid #429397;
+    font-weight: 600;
+  }
+`;
+
+export const LogoNavLink = styled(Link)`
+  img {
+    height: 60px;
+    width: 100%;
   }
 `;
 
@@ -41,7 +51,7 @@ export const Bars = styled(FontAwesomeIcon)`
     right: 0;
     transform: translate(-100%, 75%);
     font-size: 1.8rem;
-    color: yellow;
+    color: #6d597a;
     cursor: pointer;
   }
 `;
@@ -68,7 +78,7 @@ export const NavBtn = styled.nav`
 
 export const NavBtnLink = styled(Link)`
   border-radius: 4px;
-  background: hotpink;
+  background: #429397;
   padding: 10px 22px;
   color: #fff;
   border: none;

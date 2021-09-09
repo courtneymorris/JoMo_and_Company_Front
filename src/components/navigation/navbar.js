@@ -4,17 +4,21 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   Nav,
   NavLink,
+  LogoNavLink,
   Bars,
   NavMenu,
   NavBtn,
   NavBtnLink,
 } from "./navbar.style";
-import banner from "../../../static/assets/images/banner.png";
+import headerLogo from "../../../static/assets/images/HeaderLogo.png";
 
 const Navbar = () => {
   return (
     <div>
       <Nav>
+        <LogoNavLink to="/">
+          <img src={headerLogo} />
+        </LogoNavLink>
         <Bars icon="bars" />
         <NavMenu>
           <NavLink to="/shop" activeClassName="active">
@@ -30,9 +34,7 @@ const Navbar = () => {
             Contact
           </NavLink>
         </NavMenu>
-        <NavLink to="/">
-          <img src={banner} />
-        </NavLink>
+
         <NavBtn>
           <NavBtnLink to="login">Log In</NavBtnLink>
         </NavBtn>
