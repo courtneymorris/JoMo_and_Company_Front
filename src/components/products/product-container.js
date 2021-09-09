@@ -7,9 +7,19 @@ export default class ProductContainer extends Component {
   constructor(props) {
     super();
 
-    this.state = {};
+    this.state = {
+      data: [],
+    };
 
-    this.productItems = this.productItems.bind(this);
+    this.handleFilter = this.handleFilter.bind(this);
+  }
+
+  handleFilter(product) {
+    this.setState({
+      data: this.state.data.filter((item) => {
+        return item.category === filter;
+      }),
+    });
   }
 
   productItems() {

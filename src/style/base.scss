@@ -1,5 +1,6 @@
 body {
   margin: 0px;
+  padding: 0;
 }
 
 a {
@@ -9,13 +10,4 @@ a {
 
 * {
   box-sizing: border-box;
-}
-
-.app {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100vw;
-  min-height: 100vh;
-  background-color: $palePink;
 }

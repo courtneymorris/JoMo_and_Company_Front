@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-export default class InPerson extends Component {
+export default class Markets extends Component {
   constructor(props) {
     super();
 

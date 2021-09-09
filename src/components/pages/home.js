@@ -6,10 +6,6 @@ import banner from "../../../static/assets/images/banner.png";
 export default function Home() {
   return (
     <div className="home-wrapper">
-      <div className="home-banner">
-        <img src={banner}></img>
-      </div>
-
       <div className="home-links-wrapper">
         <div className="home-link shop">
           <NavLink exact to="/shop" activeClassName="nav-link-active">
