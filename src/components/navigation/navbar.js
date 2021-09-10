@@ -1,5 +1,4 @@
 import React from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import {
   Nav,
@@ -16,10 +15,10 @@ const Navbar = () => {
   return (
     <div>
       <Nav>
+        <Bars icon="bars" />
         <LogoNavLink to="/">
           <img src={headerLogo} />
         </LogoNavLink>
-        <Bars icon="bars" />
         <NavMenu>
           <NavLink to="/shop" activeClassName="active">
             Shop

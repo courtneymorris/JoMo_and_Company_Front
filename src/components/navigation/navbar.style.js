@@ -6,7 +6,7 @@ export const Nav = styled.nav`
   background: #dabfb7;
   height: 83px;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
   padding: 0.5rem calc((100vw - 1000px) / 2);
   border-bottom: 1px solid #e9ebeb;
   z-index: 10;
@@ -43,15 +43,15 @@ export const LogoNavLink = styled(Link)`
 
 export const Bars = styled(FontAwesomeIcon)`
   display: none;
+  color: #6d597a;
 
-  @media screen and (max-width: 768px) {
+  @media only screen and (min-width: 0) and (max-width: 899px) {
     display: block;
     position: absolute;
     top: 0;
     right: 0;
     transform: translate(-100%, 75%);
     font-size: 1.8rem;
-    color: #6d597a;
     cursor: pointer;
   }
 `;
@@ -59,9 +59,9 @@ export const Bars = styled(FontAwesomeIcon)`
 export const NavMenu = styled.div`
   display: flex;
   align-items: center;
-  margin-right: -24px;
+  margin-right: 24px;
 
-  @media screen and (max-width: 768px) {
+  @media only screen and (min-width: 0) and (max-width: 899px) {
     display: none;
   }
 `;
@@ -71,7 +71,7 @@ export const NavBtn = styled.nav`
   align-items: center;
   margin-right: 24px;
 
-  @media screen and (max-width: 1000px) {
+  @media only screen and (min-width: 0) and (max-width: 899px) {
     display: none;
   }
 `;
