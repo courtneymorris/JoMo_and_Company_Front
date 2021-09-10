@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { ParallaxProvider } from "react-scroll-parallax";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { FortAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -30,26 +29,24 @@ export default class App extends Component {
 
   render() {
     return (
-      <ParallaxProvider>
-        <AppContainer>
-          <Router>
-            <Navbar />
-            <Switch>
-              <Route exact path="/" component={Home} />
+      <AppContainer>
+        <Router>
+          <Navbar />
+          <Switch>
+            <Route exact path="/" component={Home} />
 
-              <Route path="/shop" component={Shop} />
+            <Route path="/shop" component={Shop} />
 
-              <Route path="/about" component={About} />
+            <Route path="/about" component={About} />
 
-              <Route path="/markets" component={Markets} />
+            <Route path="/markets" component={Markets} />
 
-              <Route exact path="/product/:slug" component={ProductDetail} />
+            <Route exact path="/product/:slug" component={ProductDetail} />
 
-              <Route component={NoMatch} />
-            </Switch>
-          </Router>
-        </AppContainer>
-      </ParallaxProvider>
+            <Route component={NoMatch} />
+          </Switch>
+        </Router>
+      </AppContainer>
     );
   }
 }
