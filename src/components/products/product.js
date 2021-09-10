@@ -8,7 +8,8 @@ export default class Product extends Component {
   }
 
   render() {
-    const { id, name, category, description, price, image } = this.props.item;
+    const { id, category, collection, name, description, price, images } =
+      this.props.item;
     return (
       <div className="product-wrapper">
         <div className="name-wrapper">{name}</div>
@@ -16,7 +17,7 @@ export default class Product extends Component {
         <div className="price-wrapper">{price}</div>
 
         <div className="product-image-wrapper">
-          <img src={image} />
+          <img src={images} />
         </div>
 
         <div className="description-wrapper">{description}</div>

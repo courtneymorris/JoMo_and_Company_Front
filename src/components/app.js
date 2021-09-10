@@ -24,6 +24,10 @@ import { AppContainer } from "./styled-components/container.style";
 library.add(faHeart, faBars, faHome, faShoppingCart, faStore);
 
 export default class App extends Component {
+  constructor(props) {
+    super(props);
+  }
+
   render() {
     return (
       <AppContainer>
@@ -32,7 +36,12 @@ export default class App extends Component {
           <Switch>
             <Route exact path="/" component={Home} />
 
-            <Route path="/shop" component={Shop} />
+            <Route
+              path="/shop"
+              render={(props) => (
+                <Shop {...props} handleFilter={this.handleFilter} />
+              )}
+            />
 
             <Route path="/about" component={About} />
 

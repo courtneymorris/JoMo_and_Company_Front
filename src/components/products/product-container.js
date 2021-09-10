@@ -1,31 +1,40 @@
 import React, { Component } from "react";
+import axios from "axios";
 
 import Product from "./product";
-import dummyData from "../../../static/assets/dummyData.json";
 
 export default class ProductContainer extends Component {
-  constructor(props) {
+  constructor() {
     super();
 
     this.state = {
+      isLoading: false,
       data: [],
     };
-
-    this.handleFilter = this.handleFilter.bind(this);
   }
 
-  handleFilter(product) {
-    this.setState({
-      data: this.state.data.filter((item) => {
-        return item.category === filter;
-      }),
-    });
+  getProducts() {
+    axios
+      .get("http://127.0.0.1:5000/product/get")
+      .then((response) => {
+        console.log(response);
+        this.setState({
+          data: response.data,
+        });
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   }
 
   productItems() {
-    return dummyData.product.map((item) => {
+    return this.state.data.map((item) => {
       return <Product key={item.id} item={item} />;
     });
+  }
+
+  componentDidMount() {
+    this.getProducts();
   }
 
   render() {

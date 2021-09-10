@@ -3,10 +3,10 @@ import { NavLink as Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export const Nav = styled.nav`
-  background: whitesmoke;
+  background: #dabfb7;
   height: 83px;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
   padding: 0.5rem calc((100vw - 1000px) / 2);
   border-bottom: 1px solid #e9ebeb;
   z-index: 10;
@@ -22,14 +22,14 @@ export const NavLink = styled(Link)`
   border-bottom: 3px solid transparent;
 
   &:hover {
-    color: #506c64;
+    color: #b56576;
     font-weight: 700;
     transition: 0.5s ease-in-out;
   }
 
   &.active {
-    color: #506c64;
-    border-bottom: 3px solid #429397;
+    color: #b56576;
+    border-bottom: 3px solid #b56576;
     font-weight: 600;
   }
 `;
@@ -78,7 +78,7 @@ export const NavBtn = styled.nav`
 
 export const NavBtnLink = styled(Link)`
   border-radius: 4px;
-  background: #429397;
+  background: #355070;
   padding: 10px 22px;
   color: #fff;
   border: none;
