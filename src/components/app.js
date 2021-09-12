@@ -17,10 +17,8 @@ import ProductDetail from "./pages/product-detail";
 import Markets from "./pages/markets";
 import Shop from "./pages/shop";
 import NoMatch from "./pages/no-match";
-import UnderConstruction from "./other/under-construction";
 
 import { AppContainer } from "./styled-components/container.style";
-import { ConstructionContainer } from "./other/under-construction-style";
 
 library.add(faHeart, faBars, faHome, faShoppingCart, faStore);
 
@@ -31,13 +29,13 @@ export default class App extends Component {
 
   render() {
     return (
-      <ConstructionContainer>
-        <h1>Coming Soon</h1>
-        {/* <Router>
-          {/* <Navbar /> */}
-        {/* <Switch>
-            <Route exact path="/" component={Home} /> */}
-        {/* <Route path="/shop" component={Shop} />
+      <AppContainer>
+        <Router>
+          <Navbar />
+          <Switch>
+            <Route exact path="/" component={Home} />
+
+            <Route path="/shop" component={Shop} />
 
             <Route path="/about" component={About} />
 
@@ -45,10 +43,10 @@ export default class App extends Component {
 
             <Route exact path="/product/:slug" component={ProductDetail} />
 
-            <Route component={NoMatch} /> */}
-        {/* </Switch>
-        </Router> */}
-      </ConstructionContainer>
+            <Route component={NoMatch} />
+          </Switch>
+        </Router>
+      </AppContainer>
     );
   }
 }
