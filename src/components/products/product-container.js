@@ -3,6 +3,8 @@ import axios from "axios";
 
 import Product from "./product";
 
+import { ProductContainerGrid } from "../styled-components/product-container.style";
+
 export default class ProductContainer extends Component {
   constructor() {
     super();
@@ -38,8 +40,6 @@ export default class ProductContainer extends Component {
   }
 
   render() {
-    return (
-      <div className="product-container-wrapper">{this.productItems()}</div>
-    );
+    return <ProductContainerGrid>{this.productItems()}</ProductContainerGrid>;
   }
 }
