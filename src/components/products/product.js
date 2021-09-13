@@ -37,16 +37,26 @@ export default class Product extends Component {
   // }
 
   render() {
-    const { id, category, collection, name, description, price, images } =
-      this.props.item;
+    const {
+      id,
+      category,
+      collection,
+      name,
+      description,
+      price,
+      featured_image,
+    } = this.props.item;
     return (
-      <ProductItem>
+      <div>
+        <CardMedia
+          style={{ height: 0, paddingTop: "150%" }}
+          image={`${featured_image}`}
+        />
         <CardContent>
-          {this.renderImages(images)}
-          <Typography>{name}</Typography>
+          <Typography variant={"h6"}>{name}</Typography>
           <Typography>{`$${price}`}</Typography>
         </CardContent>
-      </ProductItem>
+      </div>
     );
   }
 }

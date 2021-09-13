@@ -45,9 +45,11 @@ export default class ProductContainer extends Component {
   productItems() {
     return this.state.data.map((item) => {
       return (
-        <Grid item md={3}>
+        <Grid item xs={5} sm={4} md={3} lg={2}>
           <Card raised color={"pink"}>
-            <Product key={item.id} item={item} />
+            <Paper variant="outlined">
+              <Product key={item.id} item={item} />
+            </Paper>
           </Card>
         </Grid>
       );
