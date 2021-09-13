@@ -1,5 +1,18 @@
 import React, { Component } from "react";
 import axios from "axios";
+import {
+  Typography,
+  AppBar,
+  Card,
+  CardActions,
+  CardContent,
+  CardMedia,
+  CssBaseline,
+  Grid,
+  Toolbar,
+  Container,
+  Paper,
+} from "@material-ui/core";
 
 import Product from "./product";
 
@@ -31,7 +44,13 @@ export default class ProductContainer extends Component {
 
   productItems() {
     return this.state.data.map((item) => {
-      return <Product key={item.id} item={item} />;
+      return (
+        <Grid item md={3}>
+          <Card raised color={"pink"}>
+            <Product key={item.id} item={item} />
+          </Card>
+        </Grid>
+      );
     });
   }
 
@@ -40,6 +59,10 @@ export default class ProductContainer extends Component {
   }
 
   render() {
-    return <ProductContainerGrid>{this.productItems()}</ProductContainerGrid>;
+    return (
+      <Grid container spacing={4} justifyContent="center">
+        {this.productItems()}
+      </Grid>
+    );
   }
 }

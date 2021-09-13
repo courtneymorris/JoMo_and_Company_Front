@@ -1,4 +1,17 @@
 import React, { Component } from "react";
+import {
+  Typography,
+  AppBar,
+  Card,
+  CardActions,
+  CardContent,
+  CardMedia,
+  CssBaseline,
+  Grid,
+  Toolbar,
+  Container,
+  ImageList,
+} from "@material-ui/core";
 
 import { ProductItem } from "../styled-components/product.style";
 
@@ -28,9 +41,11 @@ export default class Product extends Component {
       this.props.item;
     return (
       <ProductItem>
-        <div className="product-image-wrapper">{this.renderImages(images)}</div>
-        <div className="name-wrapper">{name}</div>
-        <div className="price-wrapper">{`$${price}`}</div>
+        <CardContent>
+          {this.renderImages(images)}
+          <Typography>{name}</Typography>
+          <Typography>{`$${price}`}</Typography>
+        </CardContent>
       </ProductItem>
     );
   }

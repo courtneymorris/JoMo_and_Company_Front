@@ -1,6 +1,18 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { library } from "@fortawesome/fontawesome-svg-core";
+import {
+  Typography,
+  AppBar,
+  Card,
+  CardActions,
+  CardContent,
+  CardMedia,
+  CssBaseline,
+  Grid,
+  Toolbar,
+  Container,
+} from "@material-ui/core";
 import { FortAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faHeart,
