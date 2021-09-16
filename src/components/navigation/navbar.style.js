@@ -3,17 +3,23 @@ import { NavLink as Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export const Nav = styled.nav`
-  background: #dabfb7;
+  background: linear-gradient(to bottom, #463652, #745e82);
+  backdrop-filter: blur(10px);
   height: 83px;
   display: flex;
   justify-content: space-between;
   padding: 0.5rem calc((100vw - 1000px) / 2);
-  border-bottom: 1px solid #e9ebeb;
+  /* border-bottom: 5px solid #745e82; */
+  /* box-shadow: 0px 1px 5px 10px #745e82; */
   z-index: 10;
 `;
+// background: #463652;
+// background: linear-gradient(top, #463652, #745E82);
+// background: -moz-linear-gradient(top, #463652, #745E82);
+// background: linear-gradient(to bottom, #463652, #745E82);
 
 export const NavLink = styled(Link)`
-  color: #442b48;
+  color: #ecdfeb;
   display: flex;
   align-items: center;
   padding: 0 1rem;
@@ -28,7 +34,7 @@ export const NavLink = styled(Link)`
   }
 
   &.active {
-    color: #b56576;
+    color: #d38e9d;
     border-bottom: 3px solid #b56576;
     font-weight: 600;
   }
@@ -36,14 +42,15 @@ export const NavLink = styled(Link)`
 
 export const LogoNavLink = styled(Link)`
   img {
-    height: 60px;
+    height: 65px;
     width: 100%;
+    padding-left: 10px;
   }
 `;
 
 export const Bars = styled(FontAwesomeIcon)`
   display: none;
-  color: #6d597a;
+  color: #ecdfeb;
 
   @media only screen and (min-width: 0) and (max-width: 899px) {
     display: block;
@@ -53,6 +60,10 @@ export const Bars = styled(FontAwesomeIcon)`
     transform: translate(-100%, 75%);
     font-size: 1.8rem;
     cursor: pointer;
+
+    &:active {
+      color: #d38e9d;
+    }
   }
 `;
 

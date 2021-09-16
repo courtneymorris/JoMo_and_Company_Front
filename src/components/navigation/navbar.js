@@ -1,4 +1,5 @@
 import React from "react";
+import { AppBar } from "@material-ui/core";
 
 import {
   Nav,
@@ -15,10 +16,10 @@ const Navbar = () => {
   return (
     <div>
       <Nav>
-        <Bars icon="bars" />
         <LogoNavLink to="/">
           <img src={headerLogo} />
         </LogoNavLink>
+        <Bars icon="bars" />
         <NavMenu>
           <NavLink to="/shop" activeClassName="active">
             Shop
