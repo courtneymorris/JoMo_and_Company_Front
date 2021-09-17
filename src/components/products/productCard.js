@@ -21,29 +21,36 @@ export default function ProductCard({ product }) {
       <Card elevation={3}>
         <CardHeader
           style={{
-            backgroundColor: "#745e82",
+            backgroundColor: "#f9fcee",
+            paddingBottom: "0px",
           }}
           action={
             <Grid container>
               <Grid item>
                 <IconButton style={{ padding: "5%" }}>
-                  <FavoriteBorderRounded style={{ color: "#d6d4ed" }} />
+                  <FavoriteBorderRounded style={{ color: "#344e6f" }} />
                 </IconButton>
               </Grid>
               <Grid item>
                 <IconButton style={{ padding: "5%" }}>
-                  <ShoppingCartOutlinedIcon style={{ color: "#d6d4ed" }} />
+                  <ShoppingCartOutlinedIcon style={{ color: "#344e6f" }} />
                 </IconButton>
               </Grid>
             </Grid>
           }
         />
-        <CardMedia
-          style={{ height: 0, paddingTop: "150%" }}
-          image={`${product.featured_image}`}
-        />
-        <CardContent style={{ backgroundColor: "#745e82", color: "#ffffff" }}>
-          <Typography variant={"subtitle1"} noWrap={true}>
+        <CardContent style={{ backgroundColor: "#f9fcee", color: "#344e6f" }}>
+          <Paper elevation={3}>
+            <CardMedia
+              style={{ height: 0, paddingTop: "135%" }}
+              image={`${product.featured_image}`}
+            />
+          </Paper>
+          <Typography
+            variant={"subtitle1"}
+            noWrap={true}
+            style={{ paddingTop: "10px" }}
+          >
             {product.name}
           </Typography>
           <Typography variant={"subtitle2"}>{`$${product.price}`}</Typography>

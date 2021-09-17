@@ -29,7 +29,7 @@ export default class Admin extends Component {
                   <Button size="large">
                     <NavLink
                       exact
-                      to="/admin-update"
+                      to="/product-manager"
                       activeClassName="nav-link-active"
                     >
                       <Typography>Update Products</Typography>

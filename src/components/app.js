@@ -24,6 +24,8 @@ import {
   faHome,
   faShoppingCart,
   faStore,
+  faEdit,
+  faTrash,
 } from "@fortawesome/free-solid-svg-icons";
 
 import Navbar from "./navigation/navbar";
@@ -36,12 +38,12 @@ import Shop from "./pages/shop";
 import NoMatch from "./pages/no-match";
 
 import Admin from "./admin/admin-home";
-import UpdateProducts from "./admin/update-products";
+import ProductManager from "./admin/product-manager";
 
 import { AppContainer } from "./styled-components/container.style";
 import ExitToAppRounded from "@material-ui/icons/ExitToAppRounded";
 
-library.add(faHeart, faBars, faHome, faShoppingCart, faStore);
+library.add(faHeart, faBars, faHome, faShoppingCart, faStore, faEdit, faTrash);
 
 export default class App extends Component {
   constructor(props) {
@@ -107,7 +109,7 @@ export default class App extends Component {
           <Switch>
             <Route path="/admin" component={Admin} />
 
-            <Route path="/admin-update" component={UpdateProducts} />
+            <Route path="/product-manager" component={ProductManager} />
 
             <Route exact path="/" component={Home} />
 

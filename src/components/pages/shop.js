@@ -1,14 +1,12 @@
-import React, { Component } from "react";
+import { Container, AppBar, Button, ButtonGroup } from "@material-ui/core";
+import React, { useState } from "react";
 
 import ProductContainer from "../products/product-container";
 
-export default class Shop extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {};
-  }
-  render() {
-    return <ProductContainer />;
-  }
+export default function Shop(props) {
+  return (
+    <Container>
+      <ProductContainer />
+    </Container>
+  );
 }

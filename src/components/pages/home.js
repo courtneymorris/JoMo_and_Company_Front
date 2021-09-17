@@ -1,3 +1,4 @@
+import { Container } from "@material-ui/core";
 import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 
@@ -5,7 +6,7 @@ import banner from "../../../static/assets/images/banner.png";
 
 export default function Home() {
   return (
-    <div className="home-wrapper">
+    <Container>
       <div className="home-links-wrapper">
         <div className="home-link shop">
           <NavLink exact to="/shop" activeClassName="nav-link-active">
@@ -23,6 +24,6 @@ export default function Home() {
           </NavLink>
         </div>
       </div>
-    </div>
+    </Container>
   );
 }
