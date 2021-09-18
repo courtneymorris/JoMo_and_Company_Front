@@ -3,8 +3,8 @@ import { NavLink as Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export const Nav = styled.nav`
-  background: linear-gradient(to bottom, #463652, #745e82);
-  backdrop-filter: blur(10px);
+  /* background: linear-gradient(to bottom, #463652, #745e82);
+  backdrop-filter: blur(10px); */
   height: 83px;
   display: flex;
   justify-content: space-between;
@@ -13,10 +13,6 @@ export const Nav = styled.nav`
   /* box-shadow: 0px 1px 5px 10px #745e82; */
   z-index: 10;
 `;
-// background: #463652;
-// background: linear-gradient(top, #463652, #745E82);
-// background: -moz-linear-gradient(top, #463652, #745E82);
-// background: linear-gradient(to bottom, #463652, #745E82);
 
 export const NavLink = styled(Link)`
   color: #ecdfeb;
@@ -63,6 +59,11 @@ export const Bars = styled(FontAwesomeIcon)`
 
     &:active {
       color: #d38e9d;
+
+      &.open {
+        display: none;
+        color: #d38e9d;
+      }
     }
   }
 `;

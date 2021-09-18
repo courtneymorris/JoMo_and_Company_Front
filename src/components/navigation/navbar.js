@@ -1,6 +1,4 @@
-import React from "react";
-import { AppBar } from "@material-ui/core";
-
+import React, { useState } from "react";
 import {
   Nav,
   NavLink,
@@ -11,27 +9,62 @@ import {
   NavBtnLink,
 } from "./navbar.style";
 import headerLogo from "../../../static/assets/images/HeaderLogo.png";
+import { AppBar } from "@material-ui/core";
 
-const Navbar = () => {
+export default function Navbar() {
+  const [open, setOpen] = useState(false);
+
+  const handleMenuOpen = () => {
+    setOpen(true);
+  };
+
+  const handleMenuClose = () => {
+    setOpen(false);
+  };
+
   return (
     <div>
       <Nav>
         <LogoNavLink to="/">
           <img src={headerLogo} />
         </LogoNavLink>
-        <Bars icon="bars" />
+        <Bars icon="bars" onClick={open ? handleMenuOpen : handleMenuClose}>
+          <select>
+            <option value="Shop Online">
+              {" "}
+              <NavLink to="/shop" activeClassName="active">
+                Shop Online
+              </NavLink>
+            </option>
+            <option value="Shop In Person">
+              <NavLink to="/markets" activeClassName="active">
+                Shop In Person
+              </NavLink>
+            </option>
+            <option value="Our Story">
+              <NavLink to="/about" activeClassName="active">
+                Our Story
+              </NavLink>
+            </option>
+            <option value="Contact Us">
+              <NavLink to="/contact" activeClassName="active">
+                Contact Us
+              </NavLink>
+            </option>
+          </select>
+        </Bars>
         <NavMenu>
           <NavLink to="/shop" activeClassName="active">
-            Shop
-          </NavLink>
-          <NavLink to="/about" activeClassName="active">
-            About
+            Shop Online
           </NavLink>
           <NavLink to="/markets" activeClassName="active">
             Shop In Person
           </NavLink>
+          <NavLink to="/about" activeClassName="active">
+            Our Story
+          </NavLink>
           <NavLink to="/contact" activeClassName="active">
-            Contact
+            Contact Us
           </NavLink>
         </NavMenu>
 
@@ -41,6 +74,4 @@ const Navbar = () => {
       </Nav>
     </div>
   );
-};
-
-export default Navbar;
+}

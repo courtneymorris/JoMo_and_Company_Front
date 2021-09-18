@@ -45,93 +45,93 @@ import ExitToAppRounded from "@material-ui/icons/ExitToAppRounded";
 
 library.add(faHeart, faBars, faHome, faShoppingCart, faStore, faEdit, faTrash);
 
-export default class App extends Component {
-  constructor(props) {
-    super(props);
+export default function App() {
+  // constructor(props) {
+  //   super(props);
 
-    this.state = {
-      admin: false,
-      customer: {},
-      loading: true,
-      error: "",
-    };
+  //   this.state = {
+  //     admin: false,
+  //     customer: {},
+  //     loading: true,
+  //     error: "",
+  //   };
 
-    this.handleSetCustomer = this.handleSetCustomer.bind(this);
-    this.handleSetError = this.handleSetError.bind(this);
-    this.handleLogout = this.handleLogout.bind(this);
-  }
+  //   this.handleSetCustomer = this.handleSetCustomer.bind(this);
+  //   this.handleSetError = this.handleSetError.bind(this);
+  //   this.handleLogout = this.handleLogout.bind(this);
+  // }
 
-  componentDidMount() {
-    if (Cookies.get("email")) {
-      fetch(`http://127.0.0.1:5000/customer/get/${Cookies.get("email")}`)
-        .then((response) => response.json())
-        .then((data) => {
-          this.setState({ customer: data, loading: false });
-        })
-        .catch((error) => {
-          console.log("Error getting customer data", error);
-          this.setState({
-            error: "An error occurred... Please try again later.",
-          });
-        });
-    } else if (Cookies.get("username")) {
-      console.log("admin");
-    } else {
-      this.setState({ loading: false });
-    }
-  }
+  // componentDidMount() {
+  //   if (Cookies.get("email")) {
+  //     fetch(`http://127.0.0.1:5000/customer/get/${Cookies.get("email")}`)
+  //       .then((response) => response.json())
+  //       .then((data) => {
+  //         this.setState({ customer: data, loading: false });
+  //       })
+  //       .catch((error) => {
+  //         console.log("Error getting customer data", error);
+  //         this.setState({
+  //           error: "An error occurred... Please try again later.",
+  //         });
+  //       });
+  //   } else if (Cookies.get("username")) {
+  //     console.log("admin");
+  //   } else {
+  //     this.setState({ loading: false });
+  //   }
+  // }
 
-  handleSetCustomer(customerData) {
-    this.setState({
-      customer: customerData,
-    });
-  }
+  // handleSetCustomer(customerData) {
+  //   this.setState({
+  //     customer: customerData,
+  //   });
+  // }
 
-  handleSetError(errorData) {
-    this.setState({ error: errorData });
-  }
+  // handleSetError(errorData) {
+  //   this.setState({ error: errorData });
+  // }
 
-  handleLogout() {
-    Cookies.remove("email");
-    this.setState({ customer: {} });
-  }
+  // handleLogout() {
+  //   Cookies.remove("email");
+  //   this.setState({ customer: {} });
+  // }
 
-  render() {
-    return (
-      <AppContainer>
-        {this.state.customer.id ? (
-          <h3 onClick={this.handleLogout()}>
-            <ExitToAppRounded />
-          </h3>
-        ) : null}
-        <Router>
-          <Navbar />
-          <Switch>
-            <Route path="/admin" component={Admin} />
+  // render() {
+  return (
+    <AppContainer>
+      {/* {this.state.customer.id ? (
+        <h3 onClick={this.handleLogout()}>
+          <ExitToAppRounded />
+        </h3>
+      ) : null} */}
+      <Router>
+        <Navbar />
+        <Switch>
+          <Route path="/admin" component={Admin} />
 
-            <Route path="/product-manager" component={ProductManager} />
+          <Route path="/product-manager" component={ProductManager} />
 
-            <Route exact path="/" component={Home} />
+          <Route exact path="/" component={Home} />
 
-            <Route
-              path="/login"
-              render={(props) => (
-                <LogIn {...props} handleSetCustomer={this.handleSetCustomer} />
-              )}
-            />
+          {/* <Route
+            path="/login"
+            render={(props) => (
+              <LogIn {...props} handleSetCustomer={handleSetCustomer} />
+            )}
+          /> */}
 
-            <Route path="/shop" component={Shop} />
+          <Route path="/shop" component={Shop} />
 
-            <Route path="/about" component={About} />
+          <Route path="/about" component={About} />
 
-            <Route path="/markets" component={Markets} />
+          <Route path="/markets" component={Markets} />
 
-            <Route exact path="/product/:slug" component={ProductDetail} />
+          <Route exact path="/product/:slug" component={ProductDetail} />
 
-            <Route component={NoMatch} />
-          </Switch>
-        </Router>
-      </AppContainer>
-    );
-  }
+          <Route component={NoMatch} />
+        </Switch>
+      </Router>
+    </AppContainer>
+  );
 }
+// }
