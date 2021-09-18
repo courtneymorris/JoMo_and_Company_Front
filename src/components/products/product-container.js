@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import {
   AppBar,
   Box,
@@ -41,7 +42,9 @@ export default function Products(props) {
       <Grid container spacing={6}>
         {products.map((product) => (
           <Grid item xs={5} sm={4} md={3} lg={3} key={product.id}>
-            <ProductCard product={product} />
+            <Link to={`/product/${product.id}`}>
+              <ProductCard product={product} />
+            </Link>
           </Grid>
         ))}
       </Grid>

@@ -1,5 +1,9 @@
+import React from "react";
+import { Link } from "react-router-dom";
 import {
+  ButtonBase,
   Card,
+  CardActions,
   CardHeader,
   CardContent,
   CardMedia,
@@ -12,13 +16,15 @@ import {
 } from "@material-ui/core";
 import FavoriteBorderRounded from "@material-ui/icons/FavoriteBorderRounded";
 import ShoppingCartOutlinedIcon from "@material-ui/icons/ShoppingCartOutlined";
-import red from "@material-ui/core/colors/red";
-import React from "react";
+
+{
+  /* <Link to={`/product/${id}`}></Link> */
+}
 
 export default function ProductCard({ product }) {
   return (
     <Container>
-      <Card elevation={3}>
+      <Card hover="true" elevation={3}>
         <CardHeader
           style={{
             backgroundColor: "#f9fcee",
