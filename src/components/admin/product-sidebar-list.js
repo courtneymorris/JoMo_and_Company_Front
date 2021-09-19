@@ -2,27 +2,27 @@ import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const ProductSidebarList = (props) => {
-  const productList = props.data.map((productItem) => {
+  const productList = props.data.map((product) => {
     return (
-      <div key={productItem.id} className="product-item-thumb">
-        <div className="product-thumb-img">
-          <img src={productItem.featured_image} />
+      <div key={product.id}>
+        <div>
+          <img src={product.featured_image} />
         </div>
 
-        <div className="text-content">
-          <div className="title">{productItem.name}</div>
+        <div>
+          <div className="title">{product.name}</div>
 
           <div className="actions">
             <a
               className="action-icon"
-              onClick={() => props.handleEditClick(productItem)}
+              onClick={() => props.handleEditClick(product)}
             >
               <FontAwesomeIcon icon="edit" />
             </a>
 
             <a
               className="action-icon"
-              onClick={() => props.handleDeleteClick(productItem)}
+              onClick={() => props.handleDeleteClick(product)}
             >
               <FontAwesomeIcon icon="trash" />
             </a>

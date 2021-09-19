@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import axios from "axios";
 
 import ProductSidebarList from "./product-sidebar-list";
 import ProductCRUDForm from "./product-CRUD-form";
@@ -9,7 +8,7 @@ export default class ProductManager extends Component {
     super();
 
     this.state = {
-      productItem: [],
+      products: [],
       productToEdit: {},
     };
 
@@ -27,58 +26,57 @@ export default class ProductManager extends Component {
     });
   }
 
-  handleEditClick(productItem) {
+  handleEditClick(product) {
     this.setState({
-      productToEdit: productItem,
+      productToEdit: product,
     });
   }
 
-  handleDeleteClick(productItem) {
-    axios
-      .delete(`http://127.0.0.1:5000/product/delete/id/${productItem.id}`)
-      .then((response) => {
+  handleDeleteClick(product) {
+    fetch(`http://127.0.0.1:5000/product/delete/id/${id}`, {
+      method: "DELETE",
+    })
+      .then(() => {
         this.setState({
-          productItems: this.state.productItems.filter((item) => {
-            return item.id !== productItem.id;
+          products: this.state.products.filter((item) => {
+            return item.id !== product.id;
           }),
         });
-
-        return response.data;
       })
       .catch((error) => {
-        console.log("handleDeleteClick error", error);
+        console.log("Error deleting product", error);
       });
   }
 
   handleEditFormSubmission() {
-    this.getProductItems();
+    this.getProducts();
   }
 
-  handleNewFormSubmission(productItem) {
+  handleNewFormSubmission(product) {
     this.setState({
-      productItems: [productItem].concat(this.state.productItems),
+      products: [product].concat(this.state.products),
     });
   }
 
   handleFormSubmissionError(error) {
-    console.log("handleFormSubmissionError error", error);
+    console.log("Error submitting form", error);
   }
 
-  getProductItems() {
-    axios
-      .get("http://127.0.0.1:5000/product/get")
-      .then((response) => {
+  getProducts() {
+    fetch("http://127.0.0.1:5000/product/get")
+      .then((response) => response.json())
+      .then((data) => {
         this.setState({
-          productItems: [...response.data.product],
+          products: data,
         });
       })
       .catch((error) => {
-        console.log("Error in getProductItems: ", error);
+        console.log("Error getting products", error);
       });
   }
 
   componentDidMount() {
-    this.getProductItems();
+    this.getProducts();
   }
 
   render() {
@@ -97,7 +95,7 @@ export default class ProductManager extends Component {
         <div className="right-column">
           <ProductSidebarList
             handleDeleteClick={this.handleDeleteClick}
-            data={this.state.productItem}
+            data={this.state.products}
             handleEditClick={this.handleEditClick}
           />
         </div>
