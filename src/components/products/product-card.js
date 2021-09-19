@@ -45,22 +45,24 @@ export default function ProductCard({ product }) {
             </Grid>
           }
         />
-        <CardContent style={{ backgroundColor: "#f9fcee", color: "#344e6f" }}>
-          <Paper elevation={3}>
-            <CardMedia
-              style={{ height: 0, paddingTop: "135%" }}
-              image={`${product.featured_image}`}
-            />
-          </Paper>
-          <Typography
-            variant={"subtitle1"}
-            noWrap={true}
-            style={{ paddingTop: "10px" }}
-          >
-            {product.name}
-          </Typography>
-          <Typography variant={"subtitle2"}>{`$${product.price}`}</Typography>
-        </CardContent>
+        <Link to={`/product/${product.id}`}>
+          <CardContent style={{ backgroundColor: "#f9fcee", color: "#344e6f" }}>
+            <Paper elevation={3}>
+              <CardMedia
+                style={{ height: 0, paddingTop: "135%" }}
+                image={`${product.featured_image}`}
+              />
+            </Paper>
+            <Typography
+              variant={"subtitle1"}
+              noWrap={true}
+              style={{ paddingTop: "10px" }}
+            >
+              {product.name}
+            </Typography>
+            <Typography variant={"subtitle2"}>{`$${product.price}`}</Typography>
+          </CardContent>
+        </Link>
       </Card>
     </Container>
   );

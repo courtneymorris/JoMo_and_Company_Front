@@ -1,18 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import {
-  AppBar,
-  Box,
-  Button,
-  ButtonGroup,
-  Grid,
-  Tab,
-  Tabs,
-  TabPanel,
-  Container,
-} from "@material-ui/core";
+import { Button, ButtonGroup, Grid, Container } from "@material-ui/core";
 
-import ProductCard from "./productCard";
+import ProductCard from "./product-card";
 
 export default function Products(props) {
   const [products, setProducts] = useState([]);
@@ -22,7 +12,7 @@ export default function Products(props) {
     fetch("http://127.0.0.1:5000/product/get")
       .then((response) => response.json())
       .then((data) => setProducts(data));
-  }, []);
+  }, [props]);
 
   function filterByCategory(filter) {
     console.log("filter");
@@ -42,12 +32,14 @@ export default function Products(props) {
       <Grid container spacing={6}>
         {products.map((product) => (
           <Grid item xs={5} sm={4} md={3} lg={3} key={product.id}>
-            <Link to={`/product/${product.id}`}>
-              <ProductCard product={product} />
-            </Link>
+            {/* <Link to={`/product/${product.id}`}> */}
+            <ProductCard product={product} />
+            {/* </Link> */}
           </Grid>
         ))}
       </Grid>
     </Container>
   );
 }
+
+// {`/product/${product.id}`}
