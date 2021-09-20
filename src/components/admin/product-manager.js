@@ -34,9 +34,12 @@ export default class ProductManager extends Component {
   }
 
   handleDeleteClick(product) {
-    fetch(`http://127.0.0.1:5000/product/delete/id/${product.id}`, {
-      method: "DELETE",
-    })
+    fetch(
+      `https://api-jomoandco.herokuapp.com//product/delete/id/${product.id}`,
+      {
+        method: "DELETE",
+      }
+    )
       .then(() => {
         this.setState({
           products: this.state.products.filter((item) => {
@@ -64,7 +67,7 @@ export default class ProductManager extends Component {
   }
 
   getProducts() {
-    fetch("http://127.0.0.1:5000/product/get")
+    fetch("https://api-jomoandco.herokuapp.com//product/get")
       .then((response) => response.json())
       .then((data) => {
         this.setState({

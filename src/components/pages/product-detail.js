@@ -25,7 +25,7 @@ export default class ProductDetail extends Component {
 
   getProducts() {
     fetch(
-      `http://127.0.0.1:5000/product/get/id/${this.props.match.params.slug}`
+      `https://api-jomoandco.herokuapp.com//product/get/id/${this.props.match.params.slug}`
     )
       .then((response) => response.json())
       .then((data) => {
@@ -58,21 +58,18 @@ export default class ProductDetail extends Component {
               <Box>
                 <Grid container>
                   <Grid item>
-                    <Typography variant={"title"}>{name}</Typography>
+                    <Typography variant={"h3"}>{name}</Typography>
+
+                    <IconButton style={{ padding: "5%" }}>
+                      <FavoriteBorderRounded style={{ color: "#344e6f" }} />
+                    </IconButton>
+
+                    <IconButton style={{ padding: "5%" }}>
+                      <ShoppingCartOutlinedIcon style={{ color: "#344e6f" }} />
+                    </IconButton>
                   </Grid>
                   <Grid item>
-                    <Grid item>
-                      <IconButton style={{ padding: "5%" }}>
-                        <FavoriteBorderRounded style={{ color: "#344e6f" }} />
-                      </IconButton>
-                    </Grid>
-                    <Grid item>
-                      <IconButton style={{ padding: "5%" }}>
-                        <ShoppingCartOutlinedIcon
-                          style={{ color: "#344e6f" }}
-                        />
-                      </IconButton>
-                    </Grid>
+                    <Typography variant={"body1"}>{description}</Typography>
                   </Grid>
                 </Grid>
               </Box>

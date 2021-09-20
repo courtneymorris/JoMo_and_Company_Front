@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import Cookies from "js-cookie";
 import {
   Button,
   Container,
@@ -15,13 +14,14 @@ import {
 
 import loading from "../../../static/assets/loading.gif";
 
-export default class Login extends Component {
+export default class SignUp extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
       email: "",
       password: "",
+      passwordConfirm: "",
       error: "",
       loading: false,
     };
@@ -33,15 +33,21 @@ export default class Login extends Component {
   handleSubmit(event) {
     event.preventDefault();
 
-    if (this.state.email === "" || this.state.password === "") {
+    if (
+      this.state.email === "" ||
+      this.state.password === "" ||
+      this.state.passwordConfirm === ""
+    ) {
       this.setState({ error: "Please fill out all fields" });
+    } else if (this.state.password != this.state.passwordConfirm) {
+      this.setState({ error: "Passwords do not match!" });
     } else {
       this.setState({
         loading: true,
         error: "",
       });
 
-      fetch("https://api-jomoandco.herokuapp.com//customer/verification", {
+      fetch("https://api-jomoandco.herokuapp.com//customer/add", {
         method: "POST",
         headers: { "content-type": "application/json" },
         body: JSON.stringify({
@@ -54,17 +60,9 @@ export default class Login extends Component {
           console.log(data);
 
           this.setState({ loading: false });
-
-          if (data === "Account NOT Verified") {
-            this.setState({ error: "Invalid email or password " });
-          } else {
-            this.props.handleSetCustomer(data);
-            Cookies.set("email", this.state.email);
-            this.props.history.push("/");
-          }
         })
         .catch((error) => {
-          console.log("Error logging in", error);
+          console.log("Error adding user", error);
           this.setState({
             loading: false,
             error: "An error occurred. Please try again later.",
@@ -92,7 +90,7 @@ export default class Login extends Component {
           }}
         >
           <Typography component="h1" variant="h5">
-            Log in
+            Sign Up
           </Typography>
           <Box component="form" onSubmit={this.handleSubmit} sx={{ mt: 1 }}>
             <TextField
@@ -113,11 +111,20 @@ export default class Login extends Component {
               fullWidth
               name="password"
               label="Password"
-              //   type="password"
               id="password"
               autoComplete="password"
               onChange={this.handleChange}
               value={this.state.password}
+            />
+            <TextField
+              margin="normal"
+              required
+              fullWidth
+              name="passwordConfirm"
+              label="Repeat Password"
+              id="passwordConfirm"
+              onChange={this.handleChange}
+              value={this.state.passwordConfirm}
             />
             <FormControlLabel
               control={<Checkbox value="remember" color="primary" />}
@@ -133,14 +140,9 @@ export default class Login extends Component {
               Log In
             </Button>
             <Grid container>
-              <Grid item xs>
-                <Link href="#" variant="body2">
-                  Forgot password?
-                </Link>
-              </Grid>
               <Grid item>
-                <Link href="/signup" variant="body2">
-                  {"Don't have an account? Sign Up"}
+                <Link href="/login" variant="body2">
+                  {"Already have an account? Log in."}
                 </Link>
               </Grid>
             </Grid>

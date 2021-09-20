@@ -9,7 +9,7 @@ export default function Products(props) {
   const [category, setCategory] = useState("");
 
   useEffect(() => {
-    fetch("http://127.0.0.1:5000/product/get")
+    fetch("https://api-jomoandco.herokuapp.com//product/get")
       .then((response) => response.json())
       .then((data) => setProducts(data));
   }, [props]);
@@ -32,14 +32,10 @@ export default function Products(props) {
       <Grid container spacing={6}>
         {products.map((product) => (
           <Grid item xs={5} sm={4} md={3} lg={3} key={product.id}>
-            {/* <Link to={`/product/${product.id}`}> */}
             <ProductCard product={product} />
-            {/* </Link> */}
           </Grid>
         ))}
       </Grid>
     </Container>
   );
 }
-
-// {`/product/${product.id}`}

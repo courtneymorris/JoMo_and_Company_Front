@@ -41,57 +41,17 @@ export default class ProductCRUDForm extends Component {
 
       this.props.clearProductToEdit();
 
-      fetch(`http://127.0.0.1:5000/product/update/id/${id}`, {
-        method: "PUT",
-        headers: { "content-type": "application/json" },
-        body: JSON.stringify({
-          name: this.state.name,
-          price: this.state.price,
-          description: this.state.description,
-          category: this.state.category,
-          collection: this.state.collection,
-        }),
-      })
-        .then((response) => response.json())
-        .then((data) => {
-          this.setState({
-            id: id,
-            name: name || "",
-            price: price || 0.0,
-            description: description || "",
-            category: category || "Scrunchies",
-            collection: collection || "",
-            apiAction: "PUT",
-            editMode: true,
-            addMode: false,
-          });
-        });
-    } else if (this.state.addMode) {
-      fetch("http://127.0.0.1:5000/product/add", {
-        method: "POST",
-        headers: { "content-type": "application/json" },
-        body: JSON.stringify({
-          name: this.state.name,
-          price: this.state.price,
-          description: this.state.description,
-          category: this.state.category,
-          collection: this.state.collection,
-        }),
-      })
-        .then((response) => response.json())
-        .then((data) => {
-          this.setState({
-            id: data.id,
-            name: data.name || "",
-            price: data.price || 0.0,
-            description: data.description || "",
-            category: data.category || "Scrunchies",
-            collection: data.collection || "",
-            apiAction: "POST",
-            editMode: false,
-            addMode: true,
-          });
-        });
+      this.setState({
+        id: id,
+        name: name || "",
+        price: price || 0.0,
+        description: description || "",
+        category: category || "Scrunchies",
+        collection: collection || "",
+        apiAction: "PUT",
+        editMode: true,
+        addMode: false,
+      });
     }
   }
 
