@@ -1,5 +1,16 @@
 import React, { Component } from "react";
 import DropzoneComponent from "react-dropzone-component";
+import {
+  Button,
+  Typography,
+  TextField,
+  Input,
+  InputLabel,
+  FormControl,
+  InputAdornment,
+  MenuItem,
+  Box,
+} from "@material-ui/core";
 
 import "../../../node_modules/react-dropzone-component/styles/filepicker.css";
 import "../../../node_modules/dropzone/dist/min/dropzone.min.css";
@@ -10,85 +21,78 @@ export default class ProductCRUDForm extends Component {
 
     this.state = {
       name: "",
-      price: 0,
+      price: 0.0,
       description: "",
-      category: "eCommerce",
-      collection: "",
-      url: "",
-      featured_image: "",
-      image_url: "",
-      editMode: true, // TODO: false when admin role is complete
-      apiUrl: "http://127.0.0.1:5000/product",
-      apiAction: "post",
+      category: "Scrunchies",
+      collection: "Classic",
+      apiAction: "POST",
+      editMode: false,
+      addMode: false,
     };
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.componentConfig = this.componentConfig.bind(this);
-    this.djsConfig = this.djsConfig.bind(this);
-    this.handleImageDrop = this.handleImageDrop.bind(this);
-    this.handleFeaturedImageDrop = this.handleFeaturedImageDrop.bind(this);
-
-    this.imageRef = React.createRef();
-    this.featuredImageRef = React.createRef();
   }
 
   componentDidUpdate() {
     if (Object.keys(this.props.productToEdit).length > 0) {
-      const {
-        id,
-        name,
-        price,
-        description,
-        category,
-        collection,
-        featured_image,
-        image_url,
-      } = this.props.productToEdit;
+      const { id, name, price, description, category, collection } =
+        this.props.productToEdit;
 
       this.props.clearProductToEdit();
 
-      this.setState({
-        id: id,
-        name: name || "",
-        price: price || 0,
-        description: description || "",
-        category: category || "eCommerce",
-        category: category || "",
-        featured_image: featured_image || "",
-        image_url: image_url || "",
-        editMode: true,
-        apiUrl: `http://127.0.0.1:5000/product/update/id/${id}`,
-        apiAction: "put",
-      });
+      fetch(`http://127.0.0.1:5000/product/update/id/${id}`, {
+        method: "PUT",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify({
+          name: this.state.name,
+          price: this.state.price,
+          description: this.state.description,
+          category: this.state.category,
+          collection: this.state.collection,
+        }),
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          this.setState({
+            id: id,
+            name: name || "",
+            price: price || 0.0,
+            description: description || "",
+            category: category || "Scrunchies",
+            collection: collection || "",
+            apiAction: "PUT",
+            editMode: true,
+            addMode: false,
+          });
+        });
+    } else if (this.state.addMode) {
+      fetch("http://127.0.0.1:5000/product/add", {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify({
+          name: this.state.name,
+          price: this.state.price,
+          description: this.state.description,
+          category: this.state.category,
+          collection: this.state.collection,
+        }),
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          this.setState({
+            id: data.id,
+            name: data.name || "",
+            price: data.price || 0.0,
+            description: data.description || "",
+            category: data.category || "Scrunchies",
+            collection: data.collection || "",
+            apiAction: "POST",
+            editMode: false,
+            addMode: true,
+          });
+        });
     }
-  }
-
-  handleImageDrop() {
-    return {
-      addedfile: (file) => this.setState({ image_url: file }),
-    };
-  }
-
-  handleFeaturedImageDrop() {
-    return {
-      addedfile: (file) => this.setState({ featured_image: file }),
-    };
-  }
-
-  componentConfig() {
-    return {
-      iconFiletypes: [".jpg", ".png"],
-      showFiletypeIcon: true,
-      postUrl: "https://httpbin.org/post",
-    };
-  }
-
-  djsConfig() {
-    return {
-      addRemoveLinks: true,
-      maxFiles: 1,
-    };
   }
 
   buildForm() {
@@ -99,16 +103,6 @@ export default class ProductCRUDForm extends Component {
     formData.append("product_item[description]", this.state.description);
     formData.append("product_item[category]", this.state.category);
     formData.append("product_item[collection]", this.state.collection);
-
-    if (this.state.featured_image) {
-      formData.append(
-        "product_item[featured_image]",
-        this.state.featured_image
-      );
-    }
-    if (this.state.image_url) {
-      formData.append("product_item[image_url]", this.state.image_url);
-    }
 
     return formData;
   }
@@ -122,7 +116,6 @@ export default class ProductCRUDForm extends Component {
   handleSubmit(event) {
     axios({
       method: this.state.apiAction,
-      url: this.state.apiUrl,
       data: this.buildForm(),
     })
       .then((response) => {
@@ -137,126 +130,122 @@ export default class ProductCRUDForm extends Component {
           price: 0,
           description: "",
           category: "Scrunchies",
-          collection: "",
-          featured_image: "",
-          image_url: "",
+          collection: "Classic",
+          apiAction: "POST",
           editMode: false,
-          apiUrl: "http://127.0.0.1:5000/product/add",
-          apiAction: "post",
-        });
-
-        [this.featuredImageRef, this.imageRef].forEach((ref) => {
-          ref.current.dropzone.removeAllFiles();
+          addMode: false,
         });
       })
       .catch((error) => {
         console.log("product form handleSubmit error", error);
       });
-
     event.preventDefault();
   }
 
   render() {
     return (
-      <form onSubmit={this.handleSubmit} className="product-form-wrapper">
-        <div className="two-column">
-          <input
+      <Box>
+        <FormControl variant="standard">
+          <TextField
             type="text"
             name="name"
-            placeholder="Name"
+            label="Name"
             value={this.state.name}
             onChange={this.handleChange}
           />
+        </FormControl>
 
-          <input
+        <FormControl sx={{ m: 1 }} variant="standard">
+          <InputLabel htmlFor="standard-adornment-amount">Price</InputLabel>
+          <Input
+            id="standard-adornment-amount"
             type="text"
             name="price"
-            placeholder="Price"
+            label="Price"
             value={this.state.price}
             onChange={this.handleChange}
+            startAdornment={<InputAdornment position="start">$</InputAdornment>}
           />
-        </div>
+        </FormControl>
 
-        <div className="two-column">
-          <input
-            type="text"
+        <FormControl fullWidth sx={{ m: 1 }}>
+          <TextField
+            sx={{ m: 1 }}
+            select
+            variant="standard"
             name="collection"
-            placeholder="Collection"
+            label="Collection"
             value={this.state.collection}
             onChange={this.handleChange}
-          />
+          >
+            <MenuItem value="Classic">Classic</MenuItem>
+            <MenuItem value="Premium">Premium</MenuItem>
+            <MenuItem value="Joeys">Joeys</MenuItem>
+            <MenuItem value="Studs">Studs</MenuItem>
+            <MenuItem value="Drops">Drops</MenuItem>
+            <MenuItem value="Stunners">Stunners</MenuItem>
+            <MenuItem value="Buddies">Buddies</MenuItem>
+          </TextField>
+        </FormControl>
 
-          <select
+        <FormControl fullWidth sx={{ m: 1 }}>
+          <TextField
+            sx={{ m: 1 }}
+            select
+            variant="standard"
             name="category"
-            placeholder="Category"
+            label="Category"
             value={this.state.category}
             onChange={this.handleChange}
-            className="select-element"
           >
-            <option value="Scrunchies">Scrunchies</option>
-            <option value="Earrings">Earrings</option>
-            <option value="Charms">Charms</option>
-            <option value="Clips & More">Clips & More</option>
-          </select>
-        </div>
+            <MenuItem value="Scrunchies">Scrunchies</MenuItem>
+            <MenuItem value="Earrings">Earrings</MenuItem>
+            <MenuItem value="Charms">Charms</MenuItem>
+            <MenuItem value="Clips & More">Clips & More</MenuItem>
+          </TextField>
+        </FormControl>
 
-        <div className="one-column">
-          <textarea
-            type="text"
+        <FormControl fullWidth>
+          <TextField
+            multiline
+            rows={3}
+            id="outlined-multiline-static"
             name="description"
-            placeholder="Description"
+            label="Description"
             value={this.state.description}
             onChange={this.handleChange}
           />
-        </div>
+        </FormControl>
 
-        <div className="image-uploaders">
-          {this.state.image_url && this.state.editMode ? (
-            <div className="product-manager-image-wrapper">
-              <img src={this.state.image_url} />
-
-              <div className="image-removal-link">
-                <a onClick={console.log("TODO: deleteImage")}>Remove File</a>
-              </div>
+        {/* {this.state.featured_image && this.state.editMode ? (
+          <div className="product-manager-image-wrapper">
+            <img src={this.state.featured_image} />
+            <div className="image-removal-link">
+              <a onClick={console.log("TODO: deleteFeaturedImage")}>
+                Remove File
+              </a>
             </div>
-          ) : (
-            <DropzoneComponent
-              ref={this.imageRef}
-              config={this.componentConfig()}
-              djsConfig={this.djsConfig()}
-              eventHandlers={this.handleImageDrop()}
-            >
-              <div className="dz-message">Image</div>
-            </DropzoneComponent>
-          )}
+          </div>
+        ) : (
+          <DropzoneComponent
+            ref={this.featuredImageRef}
+            config={this.componentConfig()}
+            djsConfig={this.djsConfig()}
+            eventHandlers={this.handleFeaturedImageDrop()}
+          >
+            <div className="dz-message">Featured Image</div>
+          </DropzoneComponent>
+        )} */}
 
-          {this.state.featured_image && this.state.editMode ? (
-            <div className="product-manager-image-wrapper">
-              <img src={this.state.featured_image} />
-              <div className="image-removal-link">
-                <a onClick={console.log("TODO: deleteFeaturedImage")}>
-                  Remove File
-                </a>
-              </div>
-            </div>
-          ) : (
-            <DropzoneComponent
-              ref={this.featuredImageRef}
-              config={this.componentConfig()}
-              djsConfig={this.djsConfig()}
-              eventHandlers={this.handleFeaturedImageDrop()}
-            >
-              <div className="dz-message">Featured Image</div>
-            </DropzoneComponent>
-          )}
-        </div>
-
-        <div>
-          <button className="btn" type="submit">
-            Save
-          </button>
-        </div>
-      </form>
+        <Button
+          type="submit"
+          fullWidth
+          variant="contained"
+          sx={{ mt: 3, mb: 2 }}
+        >
+          Save
+        </Button>
+      </Box>
     );
   }
 }

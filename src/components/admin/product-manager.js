@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Box, Grid } from "@material-ui/core";
 
 import ProductSidebarList from "./product-sidebar-list";
 import ProductCRUDForm from "./product-CRUD-form";
@@ -33,7 +34,7 @@ export default class ProductManager extends Component {
   }
 
   handleDeleteClick(product) {
-    fetch(`http://127.0.0.1:5000/product/delete/id/${id}`, {
+    fetch(`http://127.0.0.1:5000/product/delete/id/${product.id}`, {
       method: "DELETE",
     })
       .then(() => {
@@ -81,8 +82,8 @@ export default class ProductManager extends Component {
 
   render() {
     return (
-      <div className="product-manager-wrapper">
-        <div className="left-column">
+      <Grid container sx={{ gridTemplateColumns: "2fr 1fr" }}>
+        <Grid item>
           <ProductCRUDForm
             handleNewFormSubmission={this.handleNewFormSubmission}
             handleEditFormSubmission={this.handleEditFormSubmission}
@@ -90,16 +91,16 @@ export default class ProductManager extends Component {
             clearProductToEdit={this.clearProductToEdit}
             productToEdit={this.state.productToEdit}
           />
-        </div>
+        </Grid>
 
-        <div className="right-column">
+        <Grid item>
           <ProductSidebarList
             handleDeleteClick={this.handleDeleteClick}
             data={this.state.products}
             handleEditClick={this.handleEditClick}
           />
-        </div>
-      </div>
+        </Grid>
+      </Grid>
     );
   }
 }
