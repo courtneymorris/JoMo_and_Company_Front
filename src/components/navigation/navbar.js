@@ -8,18 +8,27 @@ import {
   NavBtn,
   NavBtnLink,
 } from "./navbar.style";
+import { Box, IconButton } from "@material-ui/core";
+// import { ClickAwayListener } from "@mui/material";
+
 import headerLogo from "../../../static/assets/images/HeaderLogo.png";
-import { AppBar } from "@material-ui/core";
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
 
-  const handleMenuOpen = () => {
-    setOpen(true);
+  const handleClickOpen = () => {
+    !open ? setOpen(true) : setOpen(false);
   };
 
-  const handleMenuClose = () => {
-    setOpen(false);
+  const styles = {
+    position: "absolute",
+    top: 50,
+    right: 0,
+    left: -200,
+    zIndex: 1,
+    border: "1px solid",
+    p: 1,
+    bgcolor: "ivory",
   };
 
   return (
@@ -28,31 +37,43 @@ export default function Navbar() {
         <LogoNavLink to="/">
           <img src={headerLogo} />
         </LogoNavLink>
-        <Bars icon="bars" onClick={open ? handleMenuOpen : handleMenuClose}>
-          <select>
-            <option value="Shop Online">
-              {" "}
-              <NavLink to="/shop" activeClassName="active">
+        <Box sx={{ position: "relative" }}>
+          <IconButton onClick={handleClickOpen}>
+            <Bars icon="bars" />
+          </IconButton>
+          {open ? (
+            <Box sx={styles}>
+              <NavLink
+                to="/shop"
+                activeClassName="active"
+                onClick={handleClickOpen}
+              >
                 Shop Online
               </NavLink>
-            </option>
-            <option value="Shop In Person">
-              <NavLink to="/markets" activeClassName="active">
+              <NavLink
+                to="/markets"
+                activeClassName="active"
+                onClick={handleClickOpen}
+              >
                 Shop In Person
               </NavLink>
-            </option>
-            <option value="Our Story">
-              <NavLink to="/about" activeClassName="active">
+              <NavLink
+                to="/about"
+                activeClassName="active"
+                onClick={handleClickOpen}
+              >
                 Our Story
               </NavLink>
-            </option>
-            <option value="Contact Us">
-              <NavLink to="/contact" activeClassName="active">
+              <NavLink
+                to="/contact"
+                activeClassName="active"
+                onClick={handleClickOpen}
+              >
                 Contact Us
               </NavLink>
-            </option>
-          </select>
-        </Bars>
+            </Box>
+          ) : null}
+        </Box>
         <NavMenu>
           <NavLink to="/shop" activeClassName="active">
             Shop Online
@@ -69,7 +90,7 @@ export default function Navbar() {
         </NavMenu>
 
         <NavBtn>
-          <NavBtnLink to="login">Log In</NavBtnLink>
+          <NavBtnLink to="admin">Admin</NavBtnLink>
         </NavBtn>
       </Nav>
     </div>

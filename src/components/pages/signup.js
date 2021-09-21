@@ -47,7 +47,7 @@ export default class SignUp extends Component {
         error: "",
       });
 
-      fetch("https://api-jomoandco.herokuapp.com//customer/add", {
+      fetch("https://api-jomoandco.herokuapp.com/customer/add", {
         method: "POST",
         headers: { "content-type": "application/json" },
         body: JSON.stringify({

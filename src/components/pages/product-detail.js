@@ -25,7 +25,7 @@ export default class ProductDetail extends Component {
 
   getProducts() {
     fetch(
-      `https://api-jomoandco.herokuapp.com//product/get/id/${this.props.match.params.slug}`
+      `https://api-jomoandco.herokuapp.com/product/get/id/${this.props.match.params.slug}`
     )
       .then((response) => response.json())
       .then((data) => {

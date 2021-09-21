@@ -41,7 +41,7 @@ export default class Login extends Component {
         error: "",
       });
 
-      fetch("https://api-jomoandco.herokuapp.com//customer/verification", {
+      fetch("https://api-jomoandco.herokuapp.com/customer/verification", {
         method: "POST",
         headers: { "content-type": "application/json" },
         body: JSON.stringify({

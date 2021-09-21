@@ -46,7 +46,7 @@ export default class App extends Component {
   componentDidMount() {
     if (Cookies.get()) {
       fetch(
-        `https://api-jomoandco.herokuapp.com//customer/get/${Cookies.get(
+        `https://api-jomoandco.herokuapp.com/customer/get/${Cookies.get(
           "email"
         )}`
       )
