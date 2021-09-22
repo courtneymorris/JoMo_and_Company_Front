@@ -1,33 +1,42 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { Button, ButtonGroup, Grid, Container, Box } from "@material-ui/core";
+import { ButtonGroup, Grid, Container, Box } from "@material-ui/core";
+import { Button } from "../styled-components/button.style";
 
 import ProductCard from "./product-card";
 
 export default function Products(props) {
   const [products, setProducts] = useState([]);
   const [category, setCategory] = useState("");
+  const [productData, setProductData] = useState([]);
 
   useEffect(() => {
     fetch("https://api-jomoandco.herokuapp.com/product/get")
       .then((response) => response.json())
-      .then((data) => setProducts(data));
+      .then((data) => setProductData(data));
   }, [props]);
 
+  useEffect(() => {
+    setProducts(productData);
+  }, [productData]);
+
   function filterByCategory(filter) {
-    console.log("filter");
+    setProducts(
+      productData.filter((item) => {
+        return item.category === filter;
+      })
+    );
   }
 
   return (
     <Box>
       <Box sx={{ m: 3, padding: "5%" }}>
-        <ButtonGroup>
-          <Button onClick={() => filterByCategory("Scrunchies")}>
-            Scrunchies
-          </Button>
-          <Button onClick={() => filterByCategory("Earrings")}>Earrings</Button>
-          <Button onClick={() => filterByCategory("Charms")}>Charms</Button>
-        </ButtonGroup>
+        <Button onClick={() => filterByCategory("Scrunchies")}>
+          Scrunchies
+        </Button>
+        <Button onClick={() => filterByCategory("Earrings")}>Earrings</Button>
+        <Button onClick={() => filterByCategory("Charms")}>Charms</Button>
+        <Button onClick={() => setProducts(productData)}>Show All</Button>
       </Box>
       <Grid container spacing={2}>
         {products.map((product) => (

@@ -52,14 +52,15 @@ export default class ProductManager extends Component {
       });
   }
 
-  handleEditFormSubmission() {
+  handleEditFormSubmission(product) {
     this.getProducts();
   }
 
   handleNewFormSubmission(product) {
-    this.setState({
-      products: [product].concat(this.state.products),
-    });
+    // this.setState({
+    //   products: [product].concat(this.state.products),
+    // });
+    this.getProducts();
   }
 
   handleFormSubmissionError(error) {
@@ -85,25 +86,21 @@ export default class ProductManager extends Component {
 
   render() {
     return (
-      <Grid container sx={{ gridTemplateColumns: "2fr 1fr" }}>
-        <Grid item>
-          <ProductCRUDForm
-            handleNewFormSubmission={this.handleNewFormSubmission}
-            handleEditFormSubmission={this.handleEditFormSubmission}
-            handleFormSubmissionError={this.handleFormSubmissionError}
-            clearProductToEdit={this.clearProductToEdit}
-            productToEdit={this.state.productToEdit}
-          />
-        </Grid>
+      <div>
+        <ProductCRUDForm
+          handleNewFormSubmission={this.handleNewFormSubmission}
+          handleEditFormSubmission={this.handleEditFormSubmission}
+          handleFormSubmissionError={this.handleFormSubmissionError}
+          clearProductToEdit={this.clearProductToEdit}
+          productToEdit={this.state.productToEdit}
+        />
 
-        <Grid item>
-          <ProductSidebarList
-            handleDeleteClick={this.handleDeleteClick}
-            data={this.state.products}
-            handleEditClick={this.handleEditClick}
-          />
-        </Grid>
-      </Grid>
+        <ProductSidebarList
+          handleDeleteClick={this.handleDeleteClick}
+          data={this.state.products}
+          handleEditClick={this.handleEditClick}
+        />
+      </div>
     );
   }
 }

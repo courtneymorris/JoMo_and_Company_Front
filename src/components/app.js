@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Cookies from "js-cookie";
 import { library } from "@fortawesome/fontawesome-svg-core";
-import { Container } from "@material-ui/core";
+import { Box, Container, Typography } from "@material-ui/core";
 import {
   FontAwesomeIcon,
   FortAwesomeIcon,
@@ -18,6 +18,7 @@ import ProductDetail from "./pages/product-detail";
 import Markets from "./pages/markets";
 import Shop from "./pages/shop";
 import NoMatch from "./pages/no-match";
+import Contact from "./pages/contact";
 import loading from "../../static/assets/loading.gif";
 
 import Admin from "./admin/admin-home";
@@ -83,27 +84,24 @@ export default class App extends Component {
   render() {
     return (
       <AppContainer>
-        {this.state.customer.id ? (
-          <h3 onClick={this.handleLogout()}>
-            <ExitToAppRounded />
-          </h3>
-        ) : null}
-
         {this.state.loading ? (
-          <Container>
-            <img src={loading} style={{ width: "100%", height: "auto" }} />
-          </Container>
+          <Typography
+            variant="h1"
+            style={{ fontFamily: "'Lobster Two', 'cursive'", color: "#b291a5" }}
+          >
+            Loading...
+          </Typography>
         ) : (
           <Router>
             <Navbar />
             <Switch>
-              <Route path="/admin" component={Admin} />
-
-              <Route path="/product-manager" component={ProductManager} />
+              <Route path="/admin" component={ProductManager} />
 
               <Route exact path="/" component={Home} />
 
-              <Route
+              <Route path="/contact" component={Contact} />
+
+              {/* <Route
                 path="/signup"
                 render={(props) => (
                   <SignUp {...props} handleSetUser={this.handleSetUser} />
@@ -118,7 +116,7 @@ export default class App extends Component {
                     handleSetCustomer={this.handleSetCustomer}
                   />
                 )}
-              />
+              /> */}
 
               <Route path="/shop" component={Shop} />
 

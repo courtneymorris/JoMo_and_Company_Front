@@ -16,7 +16,7 @@ import headerLogo from "../../../static/assets/images/HeaderLogo.png";
 export default function Navbar() {
   const [open, setOpen] = useState(false);
 
-  const handleClickOpen = () => {
+  const handleClick = () => {
     !open ? setOpen(true) : setOpen(false);
   };
 
@@ -26,9 +26,10 @@ export default function Navbar() {
     right: 0,
     left: -200,
     zIndex: 1,
-    border: "1px solid",
+    boxShadow: "2px 5px 6px -2px",
     p: 1,
-    bgcolor: "ivory",
+    align: "center",
+    bgcolor: "#7f9172",
   };
 
   return (
@@ -38,7 +39,7 @@ export default function Navbar() {
           <img src={headerLogo} />
         </LogoNavLink>
         <Box sx={{ position: "relative" }}>
-          <IconButton onClick={handleClickOpen}>
+          <IconButton onClick={handleClick}>
             <Bars icon="bars" />
           </IconButton>
           {open ? (
@@ -46,37 +47,44 @@ export default function Navbar() {
               <NavLink
                 to="/shop"
                 activeClassName="active"
-                onClick={handleClickOpen}
+                onClick={handleClick}
               >
-                Shop Online
+                Products
               </NavLink>
               <NavLink
                 to="/markets"
                 activeClassName="active"
-                onClick={handleClickOpen}
+                onClick={handleClick}
               >
                 Shop In Person
               </NavLink>
               <NavLink
                 to="/about"
                 activeClassName="active"
-                onClick={handleClickOpen}
+                onClick={handleClick}
               >
                 Our Story
               </NavLink>
               <NavLink
                 to="/contact"
                 activeClassName="active"
-                onClick={handleClickOpen}
+                onClick={handleClick}
               >
                 Contact Us
+              </NavLink>
+              <NavLink
+                to="/admin"
+                activeClassName="active"
+                onClick={handleClick}
+              >
+                Admin
               </NavLink>
             </Box>
           ) : null}
         </Box>
         <NavMenu>
           <NavLink to="/shop" activeClassName="active">
-            Shop Online
+            Our Products
           </NavLink>
           <NavLink to="/markets" activeClassName="active">
             Shop In Person

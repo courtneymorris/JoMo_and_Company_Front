@@ -48,7 +48,7 @@ export const Bars = styled(FontAwesomeIcon)`
   display: none;
   color: #ecdfeb;
 
-  @media only screen and (min-width: 0) and (max-width: 899px) {
+  @media only screen and (min-width: 0) and (max-width: 820px) {
     display: block;
     position: absolute;
     top: 0;
@@ -73,7 +73,7 @@ export const NavMenu = styled.div`
   align-items: center;
   margin-right: 24px;
 
-  @media only screen and (min-width: 0) and (max-width: 899px) {
+  @media only screen and (min-width: 0) and (max-width: 820px) {
     display: none;
   }
 `;
@@ -83,7 +83,7 @@ export const NavBtn = styled.nav`
   align-items: center;
   margin-right: 24px;
 
-  @media only screen and (min-width: 0) and (max-width: 899px) {
+  @media only screen and (min-width: 0) and (max-width: 820px) {
     display: none;
   }
 `;
