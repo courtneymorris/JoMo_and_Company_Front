@@ -7,6 +7,7 @@ export default function Shop(props) {
   return (
     <Container>
       <ProductContainer />
+      <div className="spacer" />
     </Container>
   );
 }

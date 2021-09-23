@@ -19,6 +19,8 @@ import Markets from "./pages/markets";
 import Shop from "./pages/shop";
 import NoMatch from "./pages/no-match";
 import Contact from "./pages/contact";
+import Footer from "./navigation/footer";
+
 import loading from "../../static/assets/loading.gif";
 
 import Admin from "./admin/admin-home";
@@ -87,6 +89,7 @@ export default class App extends Component {
         {this.state.loading ? (
           <Typography
             variant="h1"
+            align="center"
             style={{ fontFamily: "'Lobster Two', 'cursive'", color: "#b291a5" }}
           >
             Loading...
@@ -130,6 +133,7 @@ export default class App extends Component {
             </Switch>
           </Router>
         )}
+        <Footer />
       </AppContainer>
     );
   }

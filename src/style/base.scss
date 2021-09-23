@@ -2,7 +2,16 @@ body {
   margin: 0px;
   padding: 0;
   height: 100%;
-  background-color: #87678d;
+  // background-color: #87678d;
+  // background: #8e6687;
+  // background: -webkit-linear-gradient(bottom right, #8e6687, #c58a87);
+  // background: -moz-linear-gradient(bottom right, #8e6687, #c58a87);
+  background: linear-gradient(to top left, #8e6687, #c58a87);
+}
+
+.spacer {
+  height: 300px;
+  width: 100%;
 }
 
 a {

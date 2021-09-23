@@ -29,7 +29,7 @@ export default function Home() {
         </div>
 
         <div className="home-link">
-          <NavLink exact to="/in-person" activeClassName="nav-link-active">
+          <NavLink exact to="/markets" activeClassName="nav-link-active">
             <Typography
               variant="h2"
               style={{ color: "#9999ff" }}
@@ -73,6 +73,7 @@ export default function Home() {
           </div>
         </div>
       </Container>
+      <div className="spacer" />
     </Container>
   );
 }

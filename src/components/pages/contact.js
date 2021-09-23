@@ -1,47 +1,94 @@
 import React, { useState } from "react";
+import emailjs from "emailjs-com";
 import {
   Box,
   Container,
+  Paper,
   Card,
   CardContent,
+  CardHeader,
   CardMedia,
   Typography,
 } from "@material-ui/core";
+import { Button } from "../styled-components/button.style";
 
 export default function Contact() {
+  function sendEmail(e) {
+    e.preventDefault();
+
+    emailjs
+      .sendForm(
+        "service_yrb76g5",
+        "template_q0t8xnv",
+        e.target,
+        "user_tll3YCj1FXFxXze6hOMpp"
+      )
+      .then(
+        (result) => {
+          console.log(result.text);
+          window.location.reload();
+        },
+        (error) => {
+          console.log(error.text);
+        }
+      );
+    e.target.reset();
+  }
   return (
     <Container>
-      <Card>
-        <CardContent>
-          <Typography
-            variant={"h4"}
-            align="center"
-            noWrap={true}
-            style={{
-              fontFamily: "'Lobster Two', cursive",
-              fontSize: "1.8rem",
-              paddingTop: 0,
-            }}
-          >
-            Get in touch!
-          </Typography>
-          <CardMedia
-            style={{ height: 0, paddingTop: "135%" }}
-            image="https://images.unsplash.com/photo-1582794543462-0d7922e50cf5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=627&q=80"
+      <form className="form-wrapper" onSubmit={sendEmail}>
+        <Typography
+          variant={"h3"}
+          align="center"
+          noWrap={true}
+          style={{
+            fontFamily: "'Lobster Two', cursive",
+            fontSize: "1.8rem",
+            paddingTop: 0,
+            paddingBottom: "1rem",
+            color: "#344e6f",
+          }}
+        >
+          Get in touch with us!
+        </Typography>
+
+        <div className="form-group">
+          <label htmlFor="FullName">Your name</label>
+          <input className="form-input" type="text" name="name" id="FullName" />
+        </div>
+
+        <div className="form-group">
+          <label htmlFor="email">Your email address</label>
+          <input className="form-input" type="email" name="email" id="email" />
+        </div>
+
+        <div className="form-group">
+          <label htmlFor="email">Subject</label>
+          <input
+            className="form-input-subject"
+            type="test"
+            name="subject"
+            id="subject"
           />
-          <Typography variant="h6" align="right">
-            phone: (208)369-2178
-          </Typography>
+        </div>
 
-          <Typography variant="h6" align="right">
-            email: krissi@jomoandcompany.com
-          </Typography>
+        <div className="form-group">
+          <label htmlFor="message">Message</label>
+          <textarea
+            className="form-textarea"
+            name="message"
+            name="message"
+            id="message"
+            placeholder="What's on your mind?"
+          ></textarea>
+        </div>
 
-          <Typography variant="h6" align="right">
-            instagram: @jomoandcompany
-          </Typography>
-        </CardContent>
-      </Card>
+        <div className="centered-btn-wrapper">
+          <Button type="submit">Send</Button>
+        </div>
+      </form>
+
+      <div className="spacer" />
     </Container>
   );
 }
