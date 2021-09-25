@@ -1,12 +1,18 @@
 .about-wrapper {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  width: 100%;
+  height: 600px;
+  background-size: cover;
+  background-image: url("https://i.ibb.co/Y2S22F5/about-Jo-Mo.jpg");
+  filter: grayscale(100%);
+  background-repeat: no-repeat;
+  background-blend-mode: overlay;
 
-  img {
-    border: 20px solid #36454f;
-    border-top: 30px solid #36454f;
-    border-bottom: 100px solid #36454f;
-    border-radius: 10px;
+  .about-content-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    .about-header {
+      align-items: center;
+    }
   }
 }

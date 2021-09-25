@@ -73,7 +73,6 @@ export default function Home() {
           </div>
         </div>
       </Container>
-      <div className="spacer" />
     </Container>
   );
 }

@@ -87,8 +87,6 @@ export default function Contact() {
           <Button type="submit">Send</Button>
         </div>
       </form>
-
-      <div className="spacer" />
     </Container>
   );
 }

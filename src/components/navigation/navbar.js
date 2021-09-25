@@ -23,13 +23,13 @@ export default function Navbar() {
   const styles = {
     position: "absolute",
     top: 50,
-    right: 0,
-    left: -200,
+    right: "100%",
+    left: "-90vw",
     zIndex: 1,
     boxShadow: "2px 5px 6px -2px",
     p: 1,
     align: "center",
-    bgcolor: "#7f9172",
+    bgcolor: "#344e6f",
   };
 
   return (

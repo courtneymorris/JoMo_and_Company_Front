@@ -5,15 +5,17 @@ export default function Markets() {
   return (
     <Container>
       <div className="markets-schedule-wrapper">
-        <Card>
-          <Typography
-            variant="h4"
-            align="center"
-            style={{ fontFamily: "'Lobster Two', 'cursive'" }}
-          >
-            Come find us in person at these markets and events!
-          </Typography>
-        </Card>
+        <div className="schedule-wrapper">
+          <Card>
+            <Typography
+              variant="h4"
+              align="center"
+              style={{ padding: "2px", fontFamily: "'Lobster Two', 'cursive'" }}
+            >
+              Come find us in person at these markets and events!
+            </Typography>
+          </Card>
+        </div>
 
         <div className="schedule-wrapper">
           <Paper>
@@ -148,8 +150,6 @@ export default function Markets() {
           </Paper>
         </div>
       </div>
-
-      <div className="spacer" />
     </Container>
   );
 }

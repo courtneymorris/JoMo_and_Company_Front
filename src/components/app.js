@@ -8,6 +8,7 @@ import {
   FortAwesomeIcon,
 } from "@fortawesome/react-fontawesome";
 import { faBars, faEdit, faTrash } from "@fortawesome/free-solid-svg-icons";
+import { faInstagram } from "@fortawesome/free-brands-svg-icons";
 
 import Navbar from "./navigation/navbar";
 import Home from "./pages/home";
@@ -29,7 +30,7 @@ import ProductManager from "./admin/product-manager";
 import { AppContainer } from "./styled-components/container.style";
 import ExitToAppRounded from "@material-ui/icons/ExitToAppRounded";
 
-library.add(faBars, faEdit, faTrash);
+library.add(faBars, faEdit, faTrash, faInstagram);
 
 export default class App extends Component {
   constructor(props) {

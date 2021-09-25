@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { ButtonGroup, Grid, Container, Box } from "@material-ui/core";
-import { Button } from "../styled-components/button.style";
+import { Button, ButtonContainer } from "../styled-components/button.style";
 
 import ProductCard from "./product-card";
 
@@ -30,14 +30,14 @@ export default function Products(props) {
 
   return (
     <Box>
-      <Box sx={{ m: 3, padding: "5%" }}>
+      <ButtonContainer>
         <Button onClick={() => filterByCategory("Scrunchies")}>
           Scrunchies
         </Button>
         <Button onClick={() => filterByCategory("Earrings")}>Earrings</Button>
         <Button onClick={() => filterByCategory("Charms")}>Charms</Button>
         <Button onClick={() => setProducts(productData)}>Show All</Button>
-      </Box>
+      </ButtonContainer>
       <Grid container spacing={2}>
         {products.map((product) => (
           <Grid item xs={6} sm={4} md={3} lg={3} key={product.id}>

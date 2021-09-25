@@ -3,14 +3,10 @@ import { NavLink as Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export const Nav = styled.nav`
-  /* background: linear-gradient(to bottom, #463652, #745e82);
-  backdrop-filter: blur(10px); */
   height: 83px;
   display: flex;
   justify-content: space-between;
   padding: 0.5rem calc((100vw - 1000px) / 2);
-  /* border-bottom: 5px solid #745e82; */
-  /* box-shadow: 0px 1px 5px 10px #745e82; */
   z-index: 10;
 `;
 
@@ -41,6 +37,11 @@ export const LogoNavLink = styled(Link)`
     height: 65px;
     width: 100%;
     padding-left: 10px;
+
+    @media only screen and (min-width: 0) and (max-width: 350px) {
+      height: 45px;
+      margin-top: 15px;
+    }
   }
 `;
 
