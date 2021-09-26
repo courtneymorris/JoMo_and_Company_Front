@@ -37,10 +37,12 @@ export const LogoNavLink = styled(Link)`
     height: 65px;
     width: 100%;
     padding-left: 10px;
+    object-fit: cover;
 
     @media only screen and (min-width: 0) and (max-width: 350px) {
       height: 45px;
       margin-top: 15px;
+      object-fit: cover;
     }
   }
 `;
