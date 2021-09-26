@@ -100,6 +100,9 @@ export default function Navbar() {
         <NavBtn>
           <NavBtnLink to="admin">Admin</NavBtnLink>
         </NavBtn>
+        {/* <button className="button-one">
+          <span>Log In</span>
+        </button> */}
       </Nav>
     </div>
   );

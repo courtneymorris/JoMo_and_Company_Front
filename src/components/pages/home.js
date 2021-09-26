@@ -65,6 +65,14 @@ export default function Home() {
         </div>
       </div>
 
+      {/* <div className="home-cards">
+        <div className="home-cards card-wrapper">
+          <div className="home-cards about">
+            <h5>Find out what drives us</h5>
+          </div>
+        </div>
+      </div> */}
+
       <Container>
         <div className="carousel-wrapper">
           <div className="carousel-inner">
