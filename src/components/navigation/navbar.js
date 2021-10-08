@@ -25,7 +25,7 @@ export default function Navbar() {
     top: 50,
     right: "100%",
     left: "-90vw",
-    zIndex: 1,
+    zIndex: 2,
     boxShadow: "2px 5px 6px -2px",
     p: 1,
     align: "center",

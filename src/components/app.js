@@ -29,6 +29,7 @@ import ProductManager from "./admin/product-manager";
 
 import { AppContainer } from "./styled-components/container.style";
 import ExitToAppRounded from "@material-ui/icons/ExitToAppRounded";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 library.add(faBars, faEdit, faTrash, faInstagram);
 
@@ -97,7 +98,7 @@ export default class App extends Component {
           </Typography>
         ) : (
           <Router>
-            <Navbar />
+            {/* <Navbar /> */}
             <Switch>
               <Route path="/admin" component={ProductManager} />
 

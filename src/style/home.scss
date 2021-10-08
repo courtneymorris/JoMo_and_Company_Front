@@ -1,37 +1,16 @@
 .home-links-wrapper {
   padding-bottom: 1.4rem;
+  width: 100%;
 
   .home-link {
     padding: 0.5rem;
   }
 }
 
-.carousel-wrapper {
-  padding: 1rem;
-  border-radius: 20px;
-  background-color: #b291a5;
-
-  .carousel-inner {
-    padding: 0.5rem;
-    border-radius: 20px;
-    background-color: #caa6ab;
-    box-shadow: 2px 5px 6px -2px rgba(0, 0, 0, 0.61);
-  }
-
-  p {
-    font-family: "Pacifico", cursive;
-    font-size: 1.5rem;
-    text-align: center;
-    color: #344e6f;
-  }
-}
-
-.carousel-photos {
-  img {
-    max-width: 100px;
-    height: auto;
-    border-radius: 3px;
-  }
+.home-wrapper {
+  overflow-x: hidden;
+  display: grid;
+  grid-template-areas: "carousel-wrapper" "home-nav-wrapper home-logo-wrapper";
 }
 
 .home-cards {

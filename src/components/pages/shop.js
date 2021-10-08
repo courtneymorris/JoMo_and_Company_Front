@@ -2,12 +2,16 @@ import { Container, AppBar, Button, ButtonGroup } from "@material-ui/core";
 import React, { useState } from "react";
 
 import ProductContainer from "../products/product-container";
+import Navbar from "../navigation/navbar";
 
 export default function Shop(props) {
   return (
-    <Container>
-      <ProductContainer />
-      <div className="spacer" />
-    </Container>
+    <div className="shop-container">
+      <Navbar />
+      <Container>
+        <ProductContainer />
+        <div className="spacer" />
+      </Container>
+    </div>
   );
 }
