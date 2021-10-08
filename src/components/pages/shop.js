@@ -3,6 +3,7 @@ import React, { useState } from "react";
 
 import ProductContainer from "../products/product-container";
 import Navbar from "../navigation/navbar";
+import Footer from "../navigation/footer";
 
 export default function Shop(props) {
   return (
@@ -12,6 +13,7 @@ export default function Shop(props) {
         <ProductContainer />
         <div className="spacer" />
       </Container>
+      <Footer />
     </div>
   );
 }

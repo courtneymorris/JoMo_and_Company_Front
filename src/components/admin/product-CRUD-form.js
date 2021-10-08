@@ -13,6 +13,8 @@ import {
 import axios from "axios";
 import { Button } from "../styled-components/button.style";
 
+import Navbar from "../navigation/navbar";
+
 export default class ProductCRUDForm extends Component {
   constructor(props) {
     super(props);
@@ -148,81 +150,85 @@ export default class ProductCRUDForm extends Component {
 
   render() {
     return (
-      <Box style={{ padding: "1rem" }}>
-        <form onSubmit={this.handleSubmit} className="crud-form-wrapper">
-          <input
-            className="crud-form-text"
-            type="text"
-            name="name"
-            placeholder="Product Name"
-            label="Name"
-            value={this.state.name}
-            onChange={this.handleChange}
-          />
+      <div className="admin-page-wrapper">
+        <Navbar />
 
-          <input
-            className="crud-form-text"
-            type="text"
-            name="price"
-            placeholder="$"
-            label="Price"
-            value={this.state.price}
-            onChange={this.handleChange}
-          />
+        <Box style={{ padding: "1rem" }}>
+          <form onSubmit={this.handleSubmit} className="crud-form-wrapper">
+            <input
+              className="crud-form-text"
+              type="text"
+              name="name"
+              placeholder="Product Name"
+              label="Name"
+              value={this.state.name}
+              onChange={this.handleChange}
+            />
 
-          <input
-            className="crud-form-text"
-            type="text"
-            name="featured_image"
-            placeholder="Full Image URL"
-            label="Featured Image"
-            value={this.state.featured_image}
-            onChange={this.handleChange}
-          />
+            <input
+              className="crud-form-text"
+              type="text"
+              name="price"
+              placeholder="$"
+              label="Price"
+              value={this.state.price}
+              onChange={this.handleChange}
+            />
 
-          <select
-            className="crud-form-select"
-            name="category"
-            placeholder="Category"
-            label="Category"
-            value={this.state.category}
-            onChange={this.handleChange}
-          >
-            <option value="Scrunchies">Scrunchies</option>
-            <option value="Earrings">Earrings</option>
-            <option value="Charms">Charms</option>
-            <option value="Clips & More">Clips & More</option>
-          </select>
+            <input
+              className="crud-form-text"
+              type="text"
+              name="featured_image"
+              placeholder="Full Image URL"
+              label="Featured Image"
+              value={this.state.featured_image}
+              onChange={this.handleChange}
+            />
 
-          <select
-            className="crud-form-select"
-            name="collection"
-            placeholder="Collection"
-            label="Collection"
-            value={this.state.collection}
-            onChange={this.handleChange}
-          >
-            <option value="Classic">Classic</option>
-            <option value="Premium">Premium</option>
-            <option value="Joeys">Joeys</option>
-            <option value="Studs">Studs</option>
-            <option value="Drops">Drops</option>
-            <option value="Stunners">Stunners</option>
-            <option value="Buddies">Buddies</option>
-          </select>
+            <select
+              className="crud-form-select"
+              name="category"
+              placeholder="Category"
+              label="Category"
+              value={this.state.category}
+              onChange={this.handleChange}
+            >
+              <option value="Scrunchies">Scrunchies</option>
+              <option value="Earrings">Earrings</option>
+              <option value="Charms">Charms</option>
+              <option value="Clips & More">Clips & More</option>
+            </select>
 
-          <textarea
-            className="crud-form-textarea"
-            name="description"
-            label="Description"
-            placeholder="Product Description..."
-            value={this.state.description}
-            onChange={this.handleChange}
-          />
+            <select
+              className="crud-form-select"
+              name="collection"
+              placeholder="Collection"
+              label="Collection"
+              value={this.state.collection}
+              onChange={this.handleChange}
+            >
+              <option value="Classic">Classic</option>
+              <option value="Premium">Premium</option>
+              <option value="Joeys">Joeys</option>
+              <option value="Studs">Studs</option>
+              <option value="Drops">Drops</option>
+              <option value="Stunners">Stunners</option>
+              <option value="Buddies">Buddies</option>
+            </select>
 
-          <Button type="submit">Save</Button>
-        </form>
-      </Box>
+            <textarea
+              className="crud-form-textarea"
+              name="description"
+              label="Description"
+              placeholder="Product Description..."
+              value={this.state.description}
+              onChange={this.handleChange}
+            />
+
+            <Button type="submit">Save</Button>
+          </form>
+        </Box>
+      </div>
     );
   }
 }

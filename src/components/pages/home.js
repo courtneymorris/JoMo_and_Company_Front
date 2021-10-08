@@ -25,32 +25,36 @@ export default function Home() {
       </Row>
 
       <Row>
-        <div className="home-nav-wrapper">
-          <div className="home-nav-link">
-            <NavLink exact to="/shop" activeClassName="nav-link-active">
-              PRODUCTS
-            </NavLink>
+        <Col>
+          <div className="home-nav-wrapper">
+            <div className="home-nav-link">
+              <NavLink exact to="/shop" activeClassName="nav-link-active">
+                PRODUCTS
+              </NavLink>
+            </div>
+            <div className="home-nav-link">
+              <NavLink exact to="/markets" activeClassName="nav-link-active">
+                MARKET
+              </NavLink>
+            </div>
+            <div className="home-nav-link">
+              <NavLink exact to="/contact" activeClassName="nav-link-active">
+                CONTACT
+              </NavLink>
+            </div>
+            <div className="home-nav-link">
+              <NavLink exact to="/about" activeClassName="nav-link-active">
+                ABOUT
+              </NavLink>
+            </div>
           </div>
-          <div className="home-nav-link">
-            <NavLink exact to="/markets" activeClassName="nav-link-active">
-              MARKET
-            </NavLink>
-          </div>
-          <div className="home-nav-link">
-            <NavLink exact to="/contact" activeClassName="nav-link-active">
-              CONTACT
-            </NavLink>
-          </div>
-          <div className="home-nav-link">
-            <NavLink exact to="/about" activeClassName="nav-link-active">
-              ABOUT
-            </NavLink>
-          </div>
-        </div>
+        </Col>
 
-        <div className="home-logo-wrapper">
-          <img src={FloatingLogo} />
-        </div>
+        <Col>
+          <div className="home-logo-wrapper">
+            <img src={FloatingLogo} />
+          </div>
+        </Col>
       </Row>
 
       {/* <div className="home-links-wrapper">

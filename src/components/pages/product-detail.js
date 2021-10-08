@@ -10,6 +10,9 @@ import {
 import FavoriteBorderRounded from "@material-ui/icons/FavoriteBorderRounded";
 import ShoppingCartOutlinedIcon from "@material-ui/icons/ShoppingCartOutlined";
 
+import Navbar from "../navigation/navbar";
+import Footer from "../navigation/footer";
+
 export default class ProductDetail extends Component {
   constructor(props) {
     super(props);
@@ -43,7 +46,8 @@ export default class ProductDetail extends Component {
     const { name, category, collection, description, price, featured_image } =
       this.state.product;
     return (
-      <Container>
+      <div className="product-detail-wrapper">
+        <Navbar />
         <Container>
           <Grid container spacing={1}>
             <Grid item xs={8} sm={6} md={4} lg={2}>
@@ -76,7 +80,8 @@ export default class ProductDetail extends Component {
             </Grid>
           </Grid>
         </Container>
-      </Container>
+        <Footer />
+      </div>
     );
   }
 }

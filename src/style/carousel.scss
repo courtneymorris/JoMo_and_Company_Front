@@ -2,11 +2,31 @@
   // height: 50vh;
 
   .carousel-item {
-    border: 1rem solid red;
-    height: 50vh;
+    height: 75vh;
+    display: flex;
+
+    h3 {
+      color: lavender;
+    }
 
     &.card-one {
-      background-color: darkolivegreen;
+      background-image: url("https://i.ibb.co/QJNYPHf/pink-Floral.jpg");
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      // border: 2rem dashed #f0c0be;
+      position: relative;
+      background-size: cover;
+      background-position: center center;
+
+      .inner-box {
+        background-color: #f0c0bec4;
+        position: absolute;
+        bottom: 2rem;
+        left: 2rem;
+        width: 20rem;
+        height: 20rem;
+      }
     }
   }
   // .carousel-item {
@@ -14,7 +34,34 @@
   // }
 
   .carousel-inner {
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.562);
     box-shadow: 2px 5px 6px -2px rgba(0, 0, 0, 0.5);
   }
 }
+
+// https://i.ibb.co/QJNYPHf/pink-Floral.jpg
+// https://i.ibb.co/7VwRBDf/scrunchies-Book.jpg
+// https://i.ibb.co/B6Cm4jV/scrunchies-Wrist.jpg
+// https://i.ibb.co/p2QCVVs/scrunchie-Book.jpg
+// https://i.ibb.co/bzzbF4L/pink-Satin.jpg
+// https://i.ibb.co/kDzkDK2/sewing-Supplies.jpg
+// https://i.ibb.co/QCyZNLj/teal-Earrings.jpg
+// https://i.ibb.co/hFy3Q5D/pink-Carnations.jpg
+// https://i.ibb.co/Bsgszv9/pink-Daisies-Coffee.jpg
+// https://i.ibb.co/ZMNR0JK/pinkFelt.png
+// https://i.ibb.co/zHwRmB9/pinkBlue.jpg
+// https://i.ibb.co/PWFzNxH/pearly-Earrings2.jpg
+// https://i.ibb.co/7Rn5scm/pearly-Earrings1.jpg
+// https://i.ibb.co/QrpwpkN/more-leaves-on-green.png
+// https://i.ibb.co/V3HRjHd/macarons.jpg
+// https://i.ibb.co/WfshmB6/light-Scallop.png
+// https://i.ibb.co/41h8p0n/light-Birds.png
+// https://i.ibb.co/gjfk6rN/grey-Blue-Diamond.png
+// https://i.ibb.co/w0NTk3j/green-Succulent.jpg
+// https://i.ibb.co/h7VFWPK/green-Scallop.png
+// https://i.ibb.co/k4twgTJ/gold-scale.png
+// https://i.ibb.co/NS6BbgV/farmers-Market.jpg
+// https://i.ibb.co/99ZfVYV/denim-Earrings-Model.jpg
+// https://i.ibb.co/G3LbDB3/blue-Husk-Luminize.png
+// https://i.ibb.co/sbYgYDC/blanca-paloma-sanchez-Avf-TRF9-QINM-unsplash.jpg
+// https://i.ibb.co/jb9RmPF/annie-spratt-g-SQbip5-HHuc-unsplash.jpg
