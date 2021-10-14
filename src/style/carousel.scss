@@ -28,6 +28,116 @@
         height: 20rem;
       }
     }
+
+    &.card-two {
+      // background-color: #f0c0be;
+      background-image: url("https://i.ibb.co/0mbnbWK/blanca-paloma-sanchez-Avf-TRF9-QINM-unsplash.jpg");
+      background-repeat: no-repeat;
+      background-size: cover;
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      .inner-box {
+        display: grid;
+        grid-template-areas:
+          "grid-column-one grid-column-two grid-column-three"
+          "image-text grid-column-two grid-column-three";
+        // position: absolute;
+        gap: 0.5rem;
+        background-color: #4d8882ad;
+        padding: 3rem;
+
+        img {
+          height: 18rem;
+        }
+
+        .image-text {
+          font-family: "Kanit", sans-serif;
+          font-weight: 900;
+          -webkit-text-stroke: 1px #9c817f;
+          font-size: calc(0.25rem + 7vw);
+          background-image: url("https://i.ibb.co/bzzbF4L/pink-Satin.jpg");
+          background-size: cover;
+          background-clip: text;
+          -webkit-background-clip: text;
+          color: transparent;
+        }
+      }
+    }
+
+    &.card-three {
+      background-image: url("https://i.ibb.co/HPH0NYD/scrunchies-Wrist.jpg");
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      // border: 2rem dashed #f0c0be;
+      position: relative;
+      background-size: cover;
+      background-position: center center;
+
+      .inner-box {
+        background-color: #f4a36149;
+        position: absolute;
+        width: 25rem;
+        height: 16rem;
+        right: 0.5rem;
+        bottom: 0.5rem;
+        .caption {
+          background-color: #ef476ea9;
+          padding: 2rem;
+          font-family: "Scheherazade New", serif;
+          outline: 4px solid rgba(255, 255, 255, 0.685);
+          outline-offset: 10px;
+          position: absolute;
+          width: 18rem;
+          height: 12rem;
+
+          h1 {
+            color: #2f4447;
+            font-size: 1.95rem;
+          }
+
+          h2 {
+            color: #354950;
+            font-size: 1.65rem;
+          }
+
+          h3 {
+            color: #3f5c61;
+            font-size: 1.45rem;
+          }
+        }
+      }
+    }
+
+    &.card-four {
+      // border: 2rem dashed #f0c0be;
+      position: relative;
+      background-image: url("https://i.ibb.co/s1ck1j9/sewing-Supplies.jpg");
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      position: relative;
+
+      .inner-box {
+        background-color: #623d378f;
+        display: grid;
+        grid-template-columns: 1fr;
+        align-content: center;
+        width: 40%;
+        height: 35%;
+        position: relative;
+        top: 45%;
+        left: 40%;
+        outline: 3px dashed rgba(245, 245, 245, 0.664);
+        outline-offset: 20px;
+        .caption {
+          position: absolute;
+          top: 1.2rem;
+        }
+      }
+    }
   }
   // .carousel-item {
   //   height: 100%;
