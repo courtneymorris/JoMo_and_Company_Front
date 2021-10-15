@@ -5,7 +5,7 @@ import { Container } from "@material-ui/core";
 export default function HomeCarousel() {
   return (
     <Carousel fade className="carousel-wrapper">
-      {/* <Carousel.Item className="carousel-item card-one">
+      <Carousel.Item className="carousel-item card-one">
         <div className="outer-box">
           <div className="inner-box">
             <Carousel.Caption className="caption">
@@ -51,7 +51,7 @@ export default function HomeCarousel() {
             <h1>Quality that lasts</h1>
           </Carousel.Caption>
         </div>
-      </Carousel.Item> */}
+      </Carousel.Item>
 
       <Carousel.Item className="carousel-item card-five">
         <div className="outer-box-one">
