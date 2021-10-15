@@ -5,11 +5,13 @@ import { Container } from "@material-ui/core";
 export default function HomeCarousel() {
   return (
     <Carousel fade className="carousel-wrapper">
-      <Carousel.Item className="carousel-item card-one">
-        <div className="inner-box">
-          <Carousel.Caption className="card-one caption">
-            <h2>Discover the JoMo difference</h2>
-          </Carousel.Caption>
+      {/* <Carousel.Item className="carousel-item card-one">
+        <div className="outer-box">
+          <div className="inner-box">
+            <Carousel.Caption className="caption">
+              <h2>Discover the JoMo difference</h2>
+            </Carousel.Caption>
+          </div>
         </div>
       </Carousel.Item>
 
@@ -48,6 +50,29 @@ export default function HomeCarousel() {
           <Carousel.Caption className="caption">
             <h1>Quality that lasts</h1>
           </Carousel.Caption>
+        </div>
+      </Carousel.Item> */}
+
+      <Carousel.Item className="carousel-item card-five">
+        <div className="outer-box-one">
+          <div className="inner-box-one">
+            <img src="https://i.ibb.co/ccYpCTC/denim-Earrings-Model.jpg" />
+          </div>
+        </div>
+        <div className="outer-box-two">
+          <div className="inner-box-two">
+            <img src="https://i.ibb.co/2MWYyq4/pearly-Earrings2.jpg" />
+          </div>
+        </div>
+
+        <div className="outer-caption-box">
+          <div className="inner-caption-box">
+            <Carousel.Caption className="caption">
+              <h1>
+                Styles that fit <div className="you">YOU</div>
+              </h1>
+            </Carousel.Caption>
+          </div>
         </div>
       </Carousel.Item>
     </Carousel>
