@@ -1,6 +1,6 @@
 .home-links-wrapper {
   padding-bottom: 1.4rem;
-  width: 100%;
+  // width: 100%;
 
   .home-link {
     padding: 0.5rem;
@@ -10,7 +10,7 @@
 .home-wrapper {
   overflow-x: hidden;
   display: grid;
-  grid-template-areas: "carousel-wrapper" "home-nav-wrapper home-logo-wrapper";
+  grid-template-areas: "navbar-bootstrap" "carousel-wrapper" "home-nav-wrapper" "home-logo-wrapper";
 }
 
 .home-cards {

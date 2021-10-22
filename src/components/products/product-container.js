@@ -40,7 +40,7 @@ export default function Products(props) {
       </ButtonContainer>
       <Grid container spacing={2}>
         {products.map((product) => (
-          <Grid item xs={6} sm={4} md={3} lg={3} key={product.id}>
+          <Grid item xs={12} sm={6} md={3} lg={3} key={product.id}>
             <ProductCard product={product} />
           </Grid>
         ))}

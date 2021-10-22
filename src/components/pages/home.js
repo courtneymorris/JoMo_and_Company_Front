@@ -16,10 +16,15 @@ import HomeCarousel from "../styled-components/carousel";
 import "bootstrap/dist/css/bootstrap.min.css";
 import FloatingLogo from "../../../static/assets/images/FloatingLogo.png";
 import { AppContainer } from "../styled-components/container.style";
+import NavbarBootstrap from "../navigation/navbar-bootstrap";
 
 export default function Home() {
   return (
-    <Col>
+    <Col className="home-wrapper">
+      <Row>
+        <NavbarBootstrap className="navbar-bootstrap" />
+      </Row>
+
       <Row>
         <HomeCarousel />
       </Row>

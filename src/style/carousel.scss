@@ -1,9 +1,9 @@
 .carousel-wrapper {
-  // height: 50vh;
-
+  position: relative;
   .carousel-item {
     height: 75vh;
-    display: flex;
+    max-width: 100vw;
+    object-fit: cover;
 
     h3 {
       color: lavender;
@@ -20,20 +20,20 @@
       background-position: center center;
 
       .outer-box {
-        width: 20rem;
-        height: 20rem;
+        width: 18rem;
+        height: 18rem;
         position: absolute;
         bottom: 4rem;
-        left: 4rem;
+        left: 1rem;
         border: 6px solid #eddea4;
 
         .inner-box {
           background-color: #f0c0bec4;
           position: absolute;
-          bottom: 2rem;
-          left: 1.5rem;
-          width: 20rem;
-          height: 20rem;
+          bottom: 1rem;
+          left: 1rem;
+          width: 18rem;
+          height: 18rem;
 
           .caption {
             position: absolute;
@@ -61,18 +61,21 @@
       display: flex;
       justify-content: center;
       align-items: center;
+
       .inner-box {
-        display: grid;
-        grid-template-areas:
-          "grid-column-one grid-column-two grid-column-three"
-          "image-text grid-column-two grid-column-three";
+        display: flex;
+        flex-direction: column;
+        // display: grid;
+        // grid-template-areas:
+        //   "grid-column-one grid-column-two grid-column-three"
+        //   "image-text grid-column-two grid-column-three";
         // position: absolute;
         gap: 0.5rem;
         background-color: #4d8882ad;
         padding: 3rem;
 
         img {
-          height: 18rem;
+          max-height: 18rem;
         }
 
         .image-text {

@@ -5,7 +5,7 @@ import { Container } from "@material-ui/core";
 export default function HomeCarousel() {
   return (
     <Carousel fade className="carousel-wrapper">
-      <Carousel.Item className="carousel-item card-one">
+      {/* <Carousel.Item className="carousel-item card-one">
         <div className="outer-box">
           <div className="inner-box">
             <Carousel.Caption className="caption">
@@ -13,7 +13,7 @@ export default function HomeCarousel() {
             </Carousel.Caption>
           </div>
         </div>
-      </Carousel.Item>
+      </Carousel.Item> */}
 
       <Carousel.Item className="carousel-item card-two">
         <div className="inner-box">
@@ -35,7 +35,7 @@ export default function HomeCarousel() {
         </div>
       </Carousel.Item>
 
-      <Carousel.Item className="carousel-item card-three">
+      {/* <Carousel.Item className="carousel-item card-three">
         <div className="inner-box">
           <Carousel.Caption className="caption">
             <h1>EVERY PIECE</h1>
@@ -74,7 +74,7 @@ export default function HomeCarousel() {
             </Carousel.Caption>
           </div>
         </div>
-      </Carousel.Item>
+      </Carousel.Item> */}
     </Carousel>
   );
 }
