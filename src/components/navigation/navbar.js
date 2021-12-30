@@ -97,9 +97,9 @@ export default function Navbar() {
           </NavLink>
         </NavMenu>
 
-        <NavBtn>
+        {/* <NavBtn>
           <NavBtnLink to="admin">Admin</NavBtnLink>
-        </NavBtn>
+        </NavBtn> */}
         {/* <button className="button-one">
           <span>Log In</span>
         </button> */}
